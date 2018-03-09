@@ -67,13 +67,13 @@
               <li class="nav-item menuhover">
                 <a class="nav-link" id="ambulancia" data-toggle="tab" href="#ambu" role="tab" aria-controls="ambu" aria-selected="false">
                   <span data-feather="shopping-cart"></span>
-                  Gestion de ambulancias
+                  Gestion de Ambulancias
                 </a>
               </li>
                <li class="nav-item menuhover">
                 <a class="nav-link" id="usuario" data-toggle="tab" href="#usu" role="tab" aria-controls="usu" aria-selected="false">
                   <span data-feather="shopping-cart"></span>
-                  Gestion de usuarios
+                  Gestion de Usuarios
                 </a>
               </li>
               <li class="nav-item menuhover">
