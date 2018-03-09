@@ -1,0 +1,294 @@
+@font-face{
+
+	font-family: 'Rubik';
+
+    src: url(../fonts/Rubik-Light.ttf);
+
+}
+
+body {
+
+	position: relative;
+
+	margin: 0;
+
+	background-color: #eee;
+
+	font-family: Rubik;
+
+}
+
+
+
+.linia1{
+
+	background-color:rgb(2, 184, 191);
+
+	height: 10px;
+
+
+
+}
+
+.linia2{
+
+	background-color:rgb(25, 144, 206);
+
+	height: 10px;
+
+}
+
+.linia3{
+
+	background-color:rgb(7, 188, 131);
+
+	height: 10px;
+
+}
+
+	
+
+/*-0-0-0-0-0-	CONTAINER-1 CONTAINER-1 CONTAINER-1 CONTAINER-1   -0-0-0-0-0-*/
+
+.container{
+
+	padding-top: 35px;
+
+}
+
+.c-2{
+
+	padding-top: 50px;
+
+}
+
+.c-2>a{
+
+	background-color: rgb(61, 155, 233);
+
+	color: white;
+
+	border-radius: 10px;
+
+	padding: 5px 10px;
+
+}
+
+
+
+.c-3{
+
+	padding-top: 35px;
+
+}
+
+
+
+
+
+/*-0-0-0-0-0-	FIN CONTAINER-1   FIN CONTAINER-1   FIN CONTAINER-1   -0-0-0-0-0-*/
+
+
+
+
+
+/*-0-0-0-0-0-	NAVBAR NAVBAR NAVBAR NAVBAR   -0-0-0-0-0-*/
+
+
+
+.navbar{
+
+	margin-top: 10px;
+
+
+
+}
+
+
+
+/*-0-0-0-0-0-	FIN NABVAR   FIN NABVAR   FIN NABVAR   -0-0-0-0-0-*/
+
+
+
+#form_create {
+
+	padding: 15px;
+
+	border-radius: 1%;
+
+	/*background-color: rgba(0,0,0,0.3);*/
+
+}
+
+
+
+/*-0-0-0-0-0-	colores y estilos para los menus   -0-0-0-0-0-*/
+
+.colorLetraMenu{
+
+	text-decoration: none;
+
+}
+
+
+
+.colorLetraMenu::after{
+
+	content: '';
+
+    display: block;
+
+    width: 0;
+
+    height: 2px;
+
+    background: rgba(7, 188, 131, 1);
+
+    transition: width .5s;
+
+    color: white;
+
+}
+
+
+
+.colorLetraMenu:hover::after{
+
+	width: 100%;
+
+    transition: width .5s;
+
+
+
+}
+
+
+
+.colIconMenu{
+
+	color: #999;
+
+	width: 16px;
+
+	height: 16px;
+
+}
+
+
+
+.menuadmin{
+
+	color: black;
+
+}
+
+/* Underline From Center */
+.menuhover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.menuhover:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #2098D1;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.menuhover:hover:before, .menuhover:focus:before, .menuhover:active:before {
+  left: 0;
+  right: 0;
+}
+.menuhover2 {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.menuhover2:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #00CEB3;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.menuhover2:hover:before, .menuhover2:focus:before, .menuhover2:active:before {
+  left: 0;
+  right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-0-0-0-0-0- FIN colores y estilos para los menus   -0-0-0-0-0-*/
+
+
+
+.bgEntrar{
+
+	background-color: rgba(7, 188, 131, 1);
+
+}
+
+.bgEntrar:hover{
+
+	background-color: rgb(4, 130, 90);
+
+	color: white;
+
+}
+
+
+
+
+
+/*-0-0-0-0-0-  MENU ADMINISTRADOR MENU ADMINISTRADOR  -0-0-0-0-0-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-0-0-0-0-0- FIN MENU ADMINISTRADOR FIN MENU ADMINISTRADOR  -0-0-0-0-0-*/

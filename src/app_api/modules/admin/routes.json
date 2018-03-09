@@ -1,0 +1,22 @@
+{
+	"create": {
+		"url": "./src/app_api/modules/admin/crud/createadmin.php",
+		"type": "POST"
+	},
+	"show" : {
+		"url" : "",
+		"type" : "GET"
+	},
+	"update" : {
+		"url" : "",
+		"type" : "PUT"
+	},
+	"login" : {
+		"url" : "./src/app_api/modules/admin/crud/adminlogin.php",
+		"type": "POST"
+	},
+	"delete" : {
+		"url" : "",
+		"type" : "DELETE"
+	}
+}
