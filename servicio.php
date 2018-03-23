@@ -34,7 +34,7 @@ if ($_COOKIE['email']) {
 <body>
 	<?php include "src/app_api/config/connection.php" ?>
 	<header>
-		<nav class="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
+		<nav class="navbar navbar-dark fixed-top bg-dark navbar-expand-lg justify-content-between">
 		  <h3 class="navbar-brand justify-content-center mx-auto" href="/">Paramezul</h3>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
@@ -68,17 +68,19 @@ if ($_COOKIE['email']) {
 				<div class="row">
 					<div class="mx-auto">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
-						  Servicio Basico
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalservice">
+						  Solicitud
 						</button>
 					</div>
 					<!-- Modal 1 -->
-						<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						<div class="modal fade" id="modalservice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 						  <div class="modal-dialog modal-dialog-centered" role="document">
 						    <div class="modal-content">
-									<form class="form-horizontal" id="formservicio">
+									<form class="form-horizontal" id="form_servicio">
 						      	<div class="modal-header">
-						        <h5 class="modal-title text-center" id="exampleModalLongTitle" style="color: rgb(25, 144, 206);">Servicio Basico</h5>
+						        <h5 class="modal-title text-center" id="exampleModalLongTitle" style="color: rgb(25, 144, 206);">
+											Servicio
+										</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>
 						        </button>
@@ -97,12 +99,13 @@ if ($_COOKIE['email']) {
 															>
 
 														  <div class="form-group">
+																<label for="telf_contacto">Telefono</label>
 																	<input
-																		type="text"
-																		class="form-control"
-																		name="telf_contacto"
-																		id="telf_contacto"
-																		placeholder="Tel a donde sera contactado">
+																	type="text"
+																	class="form-control"
+																	name="telf_contacto"
+																	id="telf_contacto"
+																	placeholder="Al cual sera contactado">
 															</div>
 
 															<div class="form-group">
