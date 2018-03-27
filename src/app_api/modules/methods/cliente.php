@@ -34,13 +34,13 @@
 			mysqli_close($connect);
 			return $res;
 		}
-		// Create User
+		
 		// Create User
 		public function create($fname,$lname,$email,$pass,$tlf){
+
 			$obj = new connect();
 			$connect = $obj->connection();
 			$res = false;
-			date_default_timezone_set('America/La_Paz');
 			$id = uniqid();
 			$salt = md5(uniqid());
 			$hash = password_hash($pass, PASSWORD_BCRYPT);
@@ -48,13 +48,17 @@
 			$email_s = filter_var($email_lower, FILTER_SANITIZE_EMAIL);
 			$activate_code = md5(uniqid()).uniqid();
 			$date = date("Y-m-d H:i:s", time());
-			$sql= "INSERT INTO cliente (__id, fname, lname, email, tlf ,salt, hash, activate_code, active, created_at, update_at) VALUES ('$id','$fname','$lname','$email_s','$tlf','$salt','$hash','$activate_code','0','$date','$date')";
+
+			$sql= "INSERT INTO cliente (__id, fname, lname, email, tlf ,salt, hash, activate_code, active, created_at, update_at) 
+			VALUES ('$id','$fname','$lname','$email_s','$tlf','$salt','$hash','$activate_code','0','$date','$date')";
+			
 			if (mysqli_query($connect, $sql)) {
 			  $res = true;
 			  $obj = new Mailer();
 			  $messageHtml = $obj->contentHtml($fname,$lname,$id,$salt);
 		 	  $messagePlain = $obj->contentPlain($fname,$lname,$id,$salt);
 				$mail = new PHPMailer(true);
+
 				try {
 			    //Server settings
 			    $mail->isSMTP();
@@ -75,8 +79,11 @@
 				} catch (Exception $e) {
 				    echo 'Mailer Error: ' . $mail->ErrorInfo;
 				}
+
 			}
+
 			mysqli_close($connect);
+
 			return $res;
 		}
 		
@@ -101,7 +108,6 @@
 			$obj = new connect();
 			$connect = $obj->connection();
 			$res = 'not found';
-			date_default_timezone_set('America/La_Paz');
 			$date = date("Y-m-d H:i:s", time());
 			$update = "
 			UPDATE $table
@@ -138,5 +144,34 @@
 	      } else {
 	        return $res;
 	      }
-	    } 
+			} 
+			
+		// Create Servicio
+		public function notificar($id_cliente, $telf_contacto, $ubicacion, $tipo){
+
+			$obj = new connect();
+			$connect = $obj->connection();
+			$res = false;
+			$id = uniqid();
+			$date = date("Y-m-d H:i:s", time());
+			
+
+			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, id_cliente, created_at, update_at) 
+			VALUES ('$id','$ubicacion', '$telf_contacto', '$tipo', '$id_cliente', '$date', '$date')";
+			
+			if (mysqli_query($connect, $sql)) {
+				
+				$id_admin = '123abc';
+				$other = "INSERT INTO es_notificado (id_admin, id_notificacion) VALUES ('$id_admin', '$id')";
+
+				if (mysqli_query($connect, $other)) {
+					$res = true;
+				}
+			}
+
+			mysqli_close($connect);
+
+			return $res;
+		}
+
 }

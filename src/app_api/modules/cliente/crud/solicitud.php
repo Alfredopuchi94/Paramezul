@@ -21,7 +21,7 @@
 			if($id!="" && $telf!="" && $ubicacion!="" && $tipo!=""){
 
 				$obj = new Methods();
-				$resp = $obj->notificar('notificacion', $id, $telf, $ubicacion, $tipo);
+				$resp = $obj->notificar( $id, $telf, $ubicacion, $tipo );
 
 				if ($resp){
 					$res['sent'] = true;
