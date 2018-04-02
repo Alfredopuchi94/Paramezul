@@ -304,9 +304,9 @@
 	            </ul>
 	            <!-- ******************* 1ER TAB ***************** -->
 	            <div class="tab-content" id="myTabContent">
-	              <div class="tab-pane fade show active" id="regis" role="tabpanel" aria-labelledby="registro">
+	              <div class="tab-pane fade show active" id="regis" role="tabpanel" aria-labelledby="registro" style="background-color: white;">
 	              	<div class="col-md-7 offset-md-2 pt-3 mx-auto">
-		                <form id="form_ambulancias" name="form_ambulancias" method="post" action="">
+		                <form id="form_create_ambulancias" name="form_ambulancias" method="post" action="">
 		                  <div id="form_message"></div>
 		                  <div class="form-group mt-4">
 		                    <label for="modelo">Modelo de Ambulancia:</label>
@@ -331,8 +331,8 @@
 	                  <!-- ******************* FIN 1ER TAB ***************** -->
 	                  <!-- ******************* 2DO TAB ***************** -->
 	                
-	              	<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="mostrar"><br>
-		                <table class="table table-striped table-responsive mx-auto">
+	              	<div class="tab-pane fade show mx-auto" id="profile" role="tabpanel" aria-labelledby="mostrar" style="background-color: white; width: 700px;"><br>
+		                <table class="table table-striped table-responsive">
 		                  <thead>
 		                    <tr class="text-center justify-content-center">
 		                      <th class="pr-5" scope="col">#</th>
@@ -486,6 +486,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<script src="./src/app_api/modules/admin/controller.js"></script>
+	<script src="./src/app_api/modules/ambulancias/controller.js"></script>
 	<script>
 		$('#myModal').on('shown.bs.modal', function () {
   			$('#myInput').trigger('focus')
