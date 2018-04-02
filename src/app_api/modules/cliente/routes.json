@@ -18,5 +18,9 @@
 	"delete" : {
 		"url" : "",
 		"type" : "DELETE"
+	},
+	"solicitud" : {
+		"url" : "./src/app_api/modules/cliente/crud/solicitud.php",
+		"type" : "POST"
 	}
 }
