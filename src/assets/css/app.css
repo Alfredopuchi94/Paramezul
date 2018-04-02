@@ -2,192 +2,152 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
 .navbar {
     margin-top: 0px !important;
 }
+@font-face{
+	font-family: 'Rubik';
+    src: url(../fonts/Rubik-Light.ttf);
+}
+@media (min-width: 300px) and (max-width: 767.98px) { 
+	.carpuselEdit{
+		display: none;
+	}
+	.c-3{
+		text-align: center;
+	}
+}
+@media (min-width: 764px) and (max-width: 987px){
+	.tra{
+		height: 115px;
+	}
+}
+body {
+	position: relative;
+	margin: 0;
+	background-color: white;
+	font-family: Rubik;
+}
+.linia1{
+	background-color:rgb(2, 184, 191);
+	height: 10px;
+	margin-right: 0px;
+}
+.linia2{
+	background-color:rgb(25, 144, 206);
+	height: 10px;
+	margin-right: 0px;
+}
+.linia3{
+	background-color:rgb(7, 188, 131);
+	height: 10px;
+}
+.separator{
+	border-right: 0.7px solid #C8C8C8;
+	border-left: 0.7px solid #C8C8C8;
+}
+	/* CAROUSEL CAROUSEL */
+.carousel{
+	width: 100%;
+}
+ .carousel-inner img {
+      width: 100%;
+      margin-bottom: -100px;
+      margin-top: -100px;
+  }
+  .bgcarousel{
+  	background-color:rgba(2, 184, 191, .5);
+  }
+  .bgcarousel2{
+  	background-color:rgba(25, 144, 206, .5);
+  }
+  .bgcarousel3{
+  	background-color:rgba(7, 188, 131, .5);
+  }
+	/* FIN CAROUSEL FIN CAROUSEL */
+/*-0-0-0-0-0-	CONTAINER-1 CONTAINER-1 CONTAINER-1 CONTAINER-1   -0-0-0-0-0-*/
+.container{
+	padding-top: 35px;
+}
+.c-2{
+	padding-top: 50px;
+}
+.c-2>a{
+	background-color: rgb(61, 155, 233);
+	color: white;
+	border-radius: 10px;
+	padding: 5px 10px;
+}
+.c-3{
+	padding-top: 35px;
+}
+/*-0-0-0-0-0-	FIN CONTAINER-1   FIN CONTAINER-1   FIN CONTAINER-1   -0-0-0-0-0-*/
+/* -0-0-0-0-0-0-0 SERVICIOS -0-0-0-0-0-0- */
+.bg-ser{
+	background-image: url('../img/serv.jpg');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.servicios{
+	background-color: rgba(20, 84, 148,0.8);
+	margin-left: 0px;
+	margin-right: 0px;
+}
+ .btnserv{
+ 	background-color: rgba(7, 188, 131, 1); 
+ 	position: fixed;
+ }
+/* -0-0-0-0-0-0-0 FIN SERVICIOS -0-0-0-0-0-0- */
+/*-0-0-0-0-0-	NAVBAR NAVBAR NAVBAR NAVBAR   -0-0-0-0-0-*/
+.navbar{
+	margin-top: 10px;
+}
+/*-0-0-0-0-0-	FIN NABVAR   FIN NABVAR   FIN NABVAR   -0-0-0-0-0-*/
+#form_create {
+	padding: 15px;
+	border-radius: 1%;
+	/*background-color: rgba(0,0,0,0.3);*/
+}
+/*-0-0-0-0-0-	colores y estilos para los menus   -0-0-0-0-0-*/
+.colorLetraMenu{
+	text-decoration: none;
+}
+.colorLetraMenu::after{
+	content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgba(7, 188, 131, 1);
+    transition: width .5s;
+    color: white;
+}
+.colorLetraMenu:hover::after{
+	width: 100%;
+    transition: width .5s;
+}
+.colIconMenu{
+	color: #999;
+	width: 16px;
+	height: 16px;
+}
+.menuadmin{
+	color: black;
+}
+/*-0-0-0-0-0- FIN colores y estilos para los menus   -0-0-0-0-0-*/
+.bgEntrar{
+	background-color: rgba(7, 188, 131, 1);
+}
+.bgEntrar:hover{
+	background-color: rgb(4, 130, 90);
+	color: white;
+}
+/*-0-0-0-0-0-  MENU ADMINISTRADOR MENU ADMINISTRADOR  -0-0-0-0-0-*/
+.bgtransp{
+	background-color: transparent;
+}
+.bgwhite{
+	background: white;
+}
 
-@font-face{
-	font-family: 'Rubik';
-    src: url(../fonts/Rubik-Light.ttf);
-}
-@media (min-width: 300px) and (max-width: 767.98px) { 
-	.carpuselEdit{
-		display: none;
-	}
-	.c-3{
-		text-align: center;
-	}
-}
-@media (min-width: 764px) and (max-width: 987px){
-	.tra{
-		height: 115px;
-	}
-}
-body {
-	position: relative;
-	margin: 0;
-	background-color: white;
-	font-family: Rubik;
-}
-
-.linia1{
-	background-color:rgb(2, 184, 191);
-	height: 10px;
-	margin-right: 0px;
-
-}
-.linia2{
-	background-color:rgb(25, 144, 206);
-	height: 10px;
-	margin-right: 0px;
-}
-.linia3{
-	background-color:rgb(7, 188, 131);
-	height: 10px;
-}
-.separator{
-	border-right: 0.7px solid #C8C8C8;
-	border-left: 0.7px solid #C8C8C8;
-}
-
-
-	/* CAROUSEL CAROUSEL */
-.carousel{
-	width: 100%;
-}
- .carousel-inner img {
-      width: 100%;
-      margin-bottom: -100px;
-      margin-top: -100px;
-  }
-  .bgcarousel{
-  	background-color:rgba(2, 184, 191, .5);
-  }
-  .bgcarousel2{
-  	background-color:rgba(25, 144, 206, .5);
-  }
-  .bgcarousel3{
-  	background-color:rgba(7, 188, 131, .5);
-  }
-	/* FIN CAROUSEL FIN CAROUSEL */
-
-
-/*-0-0-0-0-0-	CONTAINER-1 CONTAINER-1 CONTAINER-1 CONTAINER-1   -0-0-0-0-0-*/
-.container{
-	padding-top: 35px;
-}
-.c-2{
-	padding-top: 50px;
-}
-.c-2>a{
-	background-color: rgb(61, 155, 233);
-	color: white;
-	border-radius: 10px;
-	padding: 5px 10px;
-}
-
-.c-3{
-	padding-top: 35px;
-}
-
-
-/*-0-0-0-0-0-	FIN CONTAINER-1   FIN CONTAINER-1   FIN CONTAINER-1   -0-0-0-0-0-*/
-
-
-/* -0-0-0-0-0-0-0 SERVICIOS -0-0-0-0-0-0- */
-.bg-ser{
-	background-image: url('../img/serv.jpg');
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-
-}
-.servicios{
-	background-color: rgba(20, 84, 148,0.8);
-	margin-left: 0px;
-	margin-right: 0px;
-
-
-}
- .btnserv{
- 	background-color: rgba(7, 188, 131, 1); 
- 	position: fixed;
- }
-/* -0-0-0-0-0-0-0 FIN SERVICIOS -0-0-0-0-0-0- */
-
-/*-0-0-0-0-0-	NAVBAR NAVBAR NAVBAR NAVBAR   -0-0-0-0-0-*/
-
-.navbar{
-	margin-top: 10px;
-
-}
-
-/*-0-0-0-0-0-	FIN NABVAR   FIN NABVAR   FIN NABVAR   -0-0-0-0-0-*/
-
-#form_create {
-	padding: 15px;
-	border-radius: 1%;
-	/*background-color: rgba(0,0,0,0.3);*/
-}
-
-/*-0-0-0-0-0-	colores y estilos para los menus   -0-0-0-0-0-*/
-.colorLetraMenu{
-	text-decoration: none;
-}
-
-.colorLetraMenu::after{
-	content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: rgba(7, 188, 131, 1);
-    transition: width .5s;
-    color: white;
-}
-
-.colorLetraMenu:hover::after{
-	width: 100%;
-    transition: width .5s;
-
-}
-
-.colIconMenu{
-	color: #999;
-	width: 16px;
-	height: 16px;
-}
-
-.menuadmin{
-	color: black;
-}
-
-
-
-
-
-
-
-/*-0-0-0-0-0- FIN colores y estilos para los menus   -0-0-0-0-0-*/
-
-.bgEntrar{
-	background-color: rgba(7, 188, 131, 1);
-}
-.bgEntrar:hover{
-	background-color: rgb(4, 130, 90);
-	color: white;
-}
-
-
-/*-0-0-0-0-0-  MENU ADMINISTRADOR MENU ADMINISTRADOR  -0-0-0-0-0-*/
-
-.bgtransp{
-	background-color: transparent;
-}
-
-
-
-
-/*-0-0-0-0-0- FIN MENU ADMINISTRADOR FIN MENU ADMINISTRADOR  -0-0-0-0-0-*/
-
-
+/*-0-0-0-0-0- FIN MENU ADMINISTRADOR FIN MENU ADMINISTRADOR  -0-0-0-0-0-*/

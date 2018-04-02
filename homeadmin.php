@@ -22,8 +22,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home | Administrador</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" href="./src/assets/css/app.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<!-- <script src="https://use.fontawesome.com/54fbcaa374.js"></script> -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	<link rel="stylesheet" href="./src/assets/css/sidebar-style.css">
@@ -105,9 +105,9 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
           	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav flex-column" id="myTab" role="tablist">
+            <ul class="nav flex-column text-center" id="myTab" role="tablist"><br>
               <li class="nav-item">
-                <a class="nav-link"  id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true">
+                <a class="nav-link hvr-underline-from-center"  id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true">
                   <span data-feather="home"></span>
                   Inicio <span class="sr-only">(current)</span>
                 </a>
@@ -143,13 +143,13 @@
                 </a>
               </li>
             </ul>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <h6 class="sidebar-heading text-center px-3 mt-4 mb-1 text-muted">
               <span>Reportes guardados</span>
               <a class="d-flex align-items-center text-muted" href="#">
                 <span data-feather="plus-circle"></span>
               </a>
             </h6>
-            <ul class="nav flex-column mb-2">
+            <ul class="nav flex-column mb-2 text-center">
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file-text"></span>
@@ -178,9 +178,9 @@
         		
         		
         		<div class="col-md-12 offset-md-1 pl-5">	
-        		<div class="tab-content" id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
+        		<div class="tab-content " id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
 				<!-- ****************** PANEL DE INICIO ****************** -->
-					<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio">
+					<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio" style="background: white;">
 				 		<h3 class="text-center"><strong>PARAMEZUL</strong></h3><hr>
 				 		<div class="row">
 				 			<div class="col-lg-3 col-md-6 col-sm-12">
@@ -251,7 +251,8 @@
 										</div>
 									</a>
 								</div>	
-				 			</div><div class="col-lg-3 col-md-6 col-sm-12">
+				 			</div>
+				 			<div class="col-lg-3 col-md-6 col-sm-12">
 				 				<div class="card border-success text-success">
 							  		<div class="card-header">
 							  			<div class="row">
@@ -272,15 +273,26 @@
 									    
 										</div>
 									</a>
+
 								</div>	
 				 			</div>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
+				 			<br>
 				 				
 				 		</div>
 					</div>
 					<!-- ****************** FIN PANEL DE INICIO ****************** -->
 				
            			<!-- ****************** PANEL DE GESTION DE AMBULANCIA ****************** -->
-	        			<div class="tab-pane fade" id="ambu" role="tabpanel" aria-labelledby="ambulancia">
+	        			<div class="tab-pane fade bgwhite" id="ambu" role="tabpanel" aria-labelledby="ambulancia" style="background: white;">
 	            <h3 class="text-center"><strong>Gestion de Ambulancia</strong></h3><hr>
 	            <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
 	              <li class="nav-item">
