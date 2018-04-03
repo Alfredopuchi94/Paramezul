@@ -346,18 +346,21 @@
 		                    <tbody class="text-center justify-content-center">
 
 		                     	<?php $counter = 1;
-		                     	 while($ambulacia = mysqli_fetch_array($datos2)){ ?>
-				                     	<tr><td><?php echo $counter ?></td>
-				                     		<td><?php echo $ambulacia['modelo'] ?></td>
-				                     		<td><?php echo $ambulacia['placa'] ?></td>
-				                     		<td><?php echo $ambulacia['tipo'] ?></td>
+		                     	 while($ambulacia = mysqli_fetch_array($datos2)){ 
+				                     echo "<tr>";
+				                     		echo "<td>";  echo $counter; </td>
+				                     		echo "<td>";  echo $ambulacia['modelo']; echo "</td>";
+				                     		echo "<td>";  echo $ambulacia['placa']; echo "</td>";
+				                     		echo "<td>";  echo $ambulacia['tipo']; echo "</td>";
 				                     		
-				                  			<td class="pr-5"><button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><span class="fas fa-pencil-alt"></span></button>
+				                  			echo "<td class="pr-5"><a href="#exampleModal"><button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><span class="fas fa-pencil-alt"></span></button></a>
 		                        		<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
 				                     		
 				                     	</tr>
 
-				                     	<?php $counter++; } ?>
+				                     	 $counter++; } 
+
+				                     	 ?>
 		                       
 		                        
 		                      
@@ -525,5 +528,14 @@
   			$('#myInput').trigger('focus')
 		})
 	</script>
+
+	<!-- <script>
+		$("body").on("click","#profile a",function(event){
+			event.preventDefault();
+			idsele = $(this).attr("id");
+			nombresele = $(this).children("td:eq(0)").text();
+			alert("nombresele");
+		});
+	</script> -->
 </body>
 </html>
