@@ -1,6 +1,6 @@
 {
 	"create": {
-		"url": "./src/app_api/modules/ambulancias/crud/create.php",
+		"url": "./src/app_api/modules/ambulancias/crud/regisambulancias.php",
 		"type": "POST"
 	},
 	"show" : {

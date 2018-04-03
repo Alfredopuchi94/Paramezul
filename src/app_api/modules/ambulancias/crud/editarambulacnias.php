@@ -1,4 +1,5 @@
 <?php 
+
 	require_once "./../../../../../vendor/autoload.php";
 	require_once "../../../config/connection.php";
 	require_once "../../methods/ambulancias.php";
@@ -20,7 +21,7 @@
 				$res['found'] = $resp;
 				if (!$res['found']) {
 					$obj = new Methods3();
-					$resp = $obj->create($modelo,$placa,$tipo);
+					$resp = $obj->update($modelo,$placa,$tipo);
 					$res['save'] = $resp;
 				} else {
 					$res['save'] = false;

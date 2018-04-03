@@ -8,7 +8,7 @@ $( document ).ready(function() {
 	$('#form_create_ambulancias').on('submit',function(e){
 		e.preventDefault()
 		var exp1 = validateName('#modelo' ,$("#modelo").val())
-		var exp2 = validateName('#placa' ,$("#placa").val())
+		var exp2 = ('#placa' ,$("#placa").val())
 		var exp3 = validateName('#tipo' ,$("#tipo").val())
 		if (exp1 && exp2 && exp3) {
 			$.ajax({
@@ -21,7 +21,7 @@ $( document ).ready(function() {
 				data: $('#form_create_ambulancias').serialize(),
 				success: function (resp){
 					alert(resp);
-					res = = JSON.parse(resp)
+					res = JSON.parse(resp)
 					if (res.save == true) {
 						$('#form_create_ambulancias')[0].reset()
 							$('#sub').html('<i style="color:green;" class="fa fa-floppy-o" aria-hidden="true"></i>')

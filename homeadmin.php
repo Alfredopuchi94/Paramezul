@@ -16,6 +16,7 @@
 		}
 		$con = new mysqli('mysql.hostinger.es', 'u420574110_param', '123456', 'u420574110_param');
 		$datos = $con->query("SELECT * FROM administrador");
+		$datos2 = $con->query("SELECT * FROM ambulancia");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,12 +125,12 @@
                   Gestion de ambulancias
                 </a>
               </li>
-               <li class="nav-item">
+              <!--  <li class="nav-item">
                 <a class="nav-link" id="usuario" data-toggle="tab" href="#usu" role="tab" aria-controls="usu" aria-selected="false">
                   <span data-feather="shopping-cart"></span>
                   Gestion de usuarios
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="users"></span>
@@ -343,36 +344,68 @@
 		                      </tr>
 		                    </thead>
 		                    <tbody class="text-center justify-content-center">
-		                      <tr>
-		                        <th class="pr-5" scope="row">1</th>
-		                        <td class="pr-5">chevrolet</td>
-		                        <td class="pr-5">AJ12PT2</td>
-		                        <td class="pr-5">Camioneta</td>
-		                        <td class="pr-5"><button type="button" id="edit" class="btn btn-info"><span class="fas fa-pencil-alt"></span></button>
-		                        <button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
-		                      </tr>
-		                      <tr>
-		                        <th class="pr-5" scope="row">2</th>
-		                        <td class="pr-5">Toyota</td>
-		                        <td class="pr-5">MC32J45</td>
-		                        <td class="pr-5">Camioneta</td>
-		                        <td class="pr-5"><button type="button" id="edit" class="btn btn-info"><span class="fas fa-pencil-alt"></span></button>
-		                        <button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
-		                      </tr>
-		                      <tr>
-		                        <th class="pr-5" scope="row">3</th>
-		                        <td class="pr-5">Ford</td>
-		                        <td class="pr-5">SA223CR</td>
-		                        <td class="pr-5">Micro</td>
-		                        <td class="pr-5"><button type="button" id="edit" class="btn btn-info"><span class="fas fa-pencil-alt"></span></button>
-		                        <button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
-		                      </tr>
+
+		                     	<?php $counter = 1;
+		                     	 while($ambulacia = mysqli_fetch_array($datos2)){ ?>
+				                     	<tr><td><?php echo $counter ?></td>
+				                     		<td><?php echo $ambulacia['modelo'] ?></td>
+				                     		<td><?php echo $ambulacia['placa'] ?></td>
+				                     		<td><?php echo $ambulacia['tipo'] ?></td>
+				                     		
+				                  			<td class="pr-5"><button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><span class="fas fa-pencil-alt"></span></button>
+		                        		<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
+				                     		
+				                     	</tr>
+
+				                     	<?php $counter++; } ?>
 		                       
+		                        
+		                      
 		                    </tbody>
 		                  </table>
+
+
 	                </div> <!-- ******************* FIN 2DO TAB ***************** -->
 	                
 	              </div>
+	              <div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title">Editar Ambulancia</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								       		<form id="form_update_ambulancias" name="form_ambulancias" method="post" action="">
+					                  <div id="form_message"></div>
+					                  <div class="form-group mt-4">
+					                    <label for="modelo">Modelo de Ambulancia:</label>
+					                    <input type="text" class="form-control" name="modelo" id="modelo" required placeholder="Toyota">
+					                  </div>
+					                  <div class="form-group">
+					                    <label for="placa">Numero de Placa:</label>
+					                    <input type="text" class="form-control" name="placa" id="placa" required placeholder="CH540BA">
+					                    <div class="invalid-feedback"></div>
+					                  </div>
+					                  <div class="form-group">
+					                    <label for="tipo">Tipo de ambulancia:</label>
+					                    <input type="text" class="form-control" name="tipo" id="tipo" required placeholder="Microbus">
+					                    <div class="invalid-feedback"></div>
+					                  </div>
+					                  <div class="text-center">   
+					                  	<button type="submit" name="submit" class="btn btn-primary mt-4 w-25" method="post" value="Guardar Datos"><span id="sub">Registrar</span></button>
+					                  </div>
+						            </form>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="submit" name="submit" class="btn btn-primary" method="post" value="Guardar Cambios"><span id="sub">Guardar Cambios</span></button>
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
 	            </div> <!-- ****************** FIN PANEL DE GESTION DE AMBULANCIA ****************** -->
 	              
 	             <!-- ****************** PANEL DE GESTION DE USUARIO ****************** -->
@@ -455,14 +488,14 @@
 				                      </tr>
 				                    </thead>
 				                    <tbody class="text-center justify-content-center">
-				                     <?php while($client = mysqli_fetch_array($datos)){ ?>
+				                     <?php while($admin = mysqli_fetch_array($datos)){ ?>
 				                     	<tr>
-				                     		<td><?php echo $client['fname'] ?></td>
-				                     		<td><?php echo $client['lname'] ?></td>
-				                     		<td><?php echo $client['email'] ?></td>
-				                     		<td><?php echo $client['tlf'] ?></td>
-				                     		<td><?php echo $client['type'] ?></td>
-				                     		<td><?php echo $client['active'] ?></td>
+				                     		<td><?php echo $admin['fname'] ?></td>
+				                     		<td><?php echo $admin['lname'] ?></td>
+				                     		<td><?php echo $admin['email'] ?></td>
+				                     		<td><?php echo $admin['tlf'] ?></td>
+				                     		<td><?php echo $admin['type'] ?></td>
+				                     		<td><?php echo $admin['active'] ?></td>
 				                     		
 				                     		
 				                     	</tr>
@@ -485,8 +518,8 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	<script src="./src/app_api/modules/admin/controller.js"></script>
 	<script src="./src/app_api/modules/ambulancias/controller.js"></script>
+	<!-- <script src="./src/app_api/modules/admin/controller.js"></script> -->
 	<script>
 		$('#myModal').on('shown.bs.modal', function () {
   			$('#myInput').trigger('focus')
