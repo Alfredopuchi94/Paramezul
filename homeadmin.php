@@ -32,6 +32,8 @@
 	<link rel="stylesheet" href="./src/assets/css/docs.css">
 	<link rel="stylesheet" href="./src/assets/css/bootstrap-notifications.css">
 
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 </head>
 <body>
 	<nav id="menu" class="panel" role="navigation">
@@ -456,7 +458,7 @@
 	</div>
 
 			<!-- -o-o-o-o-o-o-o-o-o-o- SCRIPT -o-o-o-o-o-o-o-o-o-o- -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 	<script src="./src/assets/js/bigSlide.js"></script>
 	<script>
 		$(document).ready(function() {
