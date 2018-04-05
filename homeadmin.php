@@ -18,7 +18,7 @@
 		$datos = $con->query("SELECT * FROM administrador");
 		$datos2 = $con->query("SELECT * FROM ambulancia");
 
-	          
+
 
 	              ?>
 <!DOCTYPE html>
@@ -33,13 +33,23 @@
 	<link rel="stylesheet" href="./src/assets/css/sidebar-style.css">
 	<link rel="stylesheet" href="./src/assets/css/docs.css">
 	<link rel="stylesheet" href="./src/assets/css/bootstrap-notifications.css">
-	
+
 </head>
 <body>
+	<nav id="menu" class="panel" role="navigation">
+		<ul>
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Gestion de Ambulacias</a></li>
+		</ul>
+	</nav>
+<div class="wrap push">
 	<nav class="navbar navbar-dark bg-info sticky-top justify-content-between">
-	   	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	   	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
-		</button>
+		</button> -->
+
+		<a href="#menu" class="menu-link navbar-toggler"> <span class="navbar-toggler-icon"></span> </a>
+
 		<div class="dropdown">
 			<button class="btn dropdown-toggle bgtransp text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-bell"></i></button>
 				<div class="dropdown-menu notifications" aria-labelledby="dropdownMenuButton" style="overflow-y: scroll; min-width: 100px; min-height: 100px; max-width: 500px; max-height: 400px;">
@@ -89,9 +99,9 @@
 					  </li>
 					</ul>
 				</div>
-			
+
 		</div>
-	  		
+
 		<div class="dropdown show mr-4">
 		  	<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['fname'].' '.$_SESSION['lname']; ?></a>
 		  	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -101,11 +111,11 @@
 			    <a class="dropdown-item" href="./logout">Cerrar Sesión</a>
 		  	</div>
 		</div>
-			
-		
+
+
     </nav>
     <div class="container-fluid">
-      <div class="row">
+      <!-- <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
           	<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -128,12 +138,6 @@
                   Gestion de ambulancias
                 </a>
               </li>
-              <!--  <li class="nav-item">
-                <a class="nav-link" id="usuario" data-toggle="tab" href="#usu" role="tab" aria-controls="usu" aria-selected="false">
-                  <span data-feather="shopping-cart"></span>
-                  Gestion de usuarios
-                </a>
-              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="users"></span>
@@ -173,15 +177,16 @@
                 </a>
               </li>
             </ul>
+          	</div>
           </div>
-      </div>
-        </nav>
-      
+				</nav>
+      </div> -->
+
 	<div class="container">
 		<div class="row mt-4">
-        		
-        		
-        		<div class="col-md-12 offset-md-1 pl-5">	
+
+
+        		<div class="col-md-12 offset-md-1 pl-5">
         		<div class="tab-content " id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
 				<!-- ****************** PANEL DE INICIO ****************** -->
 					<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio" style="background: white;">
@@ -205,10 +210,10 @@
 									   <span class="align-content-around">Ver Ambulancias</span>
 									   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
 									   <div class="clearfix"></div>
-									    
+
 										</div>
 									</a>
-								</div>	
+								</div>
 				 			</div>
 				 			<div class="col-lg-3 col-md-6 col-sm-12">
 				 				<div class="card border-danger text-danger">
@@ -228,10 +233,10 @@
 									   <span class="align-content-around">Ver Administradores</span>
 									   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
 									   <div class="clearfix"></div>
-									    
+
 										</div>
 									</a>
-								</div>	
+								</div>
 				 			</div>
 				 			<div class="col-lg-3 col-md-6 col-sm-12">
 				 				<div class="card border-warning text-warning">
@@ -251,10 +256,10 @@
 									   <span class="align-content-around">Ver Clientes</span>
 									   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
 									   <div class="clearfix"></div>
-									    
+
 										</div>
 									</a>
-								</div>	
+								</div>
 				 			</div>
 				 			<div class="col-lg-3 col-md-6 col-sm-12">
 				 				<div class="card border-success text-success">
@@ -274,11 +279,11 @@
 									   <span class="align-content-around">Ver Servicios</span>
 									   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
 									   <div class="clearfix"></div>
-									    
+
 										</div>
 									</a>
 
-								</div>	
+								</div>
 				 			</div>
 				 			<br>
 				 			<br>
@@ -290,11 +295,11 @@
 				 			<br>
 				 			<br>
 				 			<br>
-				 				
+
 				 		</div>
 					</div>
 					<!-- ****************** FIN PANEL DE INICIO ****************** -->
-				
+
            			<!-- ****************** PANEL DE GESTION DE AMBULANCIA ****************** -->
 	        			<div class="tab-pane fade bgwhite" id="ambu" role="tabpanel" aria-labelledby="ambulancia" style="background: white;">
 	            <h3 class="text-center"><strong>Gestion de Ambulancia</strong></h3><hr>
@@ -326,7 +331,7 @@
 		                    <input type="text" class="form-control" name="tipo" id="tipo" required placeholder="Microbus">
 		                    <div class="invalid-feedback"></div>
 		                  </div>
-		                  <div class="text-center">   
+		                  <div class="text-center">
 		                  	<button type="submit" name="submit" class="btn btn-primary mt-4 w-25" method="post" value="Guardar Datos"><span id="sub">Registrar</span></button>
 		                  </div>
 		                </form>
@@ -334,7 +339,7 @@
 	              </div>
 	                  <!-- ******************* FIN 1ER TAB ***************** -->
 	                  <!-- ******************* 2DO TAB ***************** -->
-	                
+
 	              	<div class="tab-pane fade show mx-auto" id="profile" role="tabpanel" aria-labelledby="mostrar" style="background-color: white; width: 700px;"><br>
 		                <table class="table table-striped table-responsive">
 		                  <thead>
@@ -363,20 +368,20 @@
 				                     		<td> <?php echo $ambulacia['tipo']; ?>   </td>
 				                     		<td class="pr-5">
 				                  			<button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick="editarambu('<?php echo $datos ?>')"><span class="fas fa-pencil-alt"></span></button>
-																<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>				                     		
+																<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
 				                     </tr>
 
-				                     	 
+
 				                     <?php $counter++; } ?>
-		                         
-				                     	
-		                       
+
+
+
 		                    </tbody>
 		                  </table>
 
 
 	                </div> <!-- ******************* FIN 2DO TAB ***************** -->
-	                
+
 	              </div>
 	   						<div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								  <div class="modal-dialog" role="document">
@@ -415,7 +420,7 @@
 								  </div>
 								</div>
 	            </div> <!-- ****************** FIN PANEL DE GESTION DE AMBULANCIA ****************** -->
-	              
+
 	             <!-- ****************** PANEL DE GESTION DE USUARIO ****************** -->
 			        	<div class="tab-pane fade" id="usu" role="tabpanel" aria-labelledby="usuario">
 				            <h3 class="text-center"><strong>Gestion de Usuario</strong></h3><hr>
@@ -475,13 +480,13 @@
 											<button type="submit" class="btn btn-primary mt-4 w-25"><span id="sub">Registrar</span></button>
 				      					</div>
 				      				</form>
-				                </div>    
-				           
-				          
+				                </div>
+
+
 				              </div>
 				                  <!-- ******************* FIN 1ER TAB ***************** -->
 				                  <!-- ******************* 2DO TAB ***************** -->
-				                
+
 				              <div class="tab-pane fade show" id="most_usu" role="tabpanel" aria-labelledby="mostrar_usuario"><br>
 								 <table class="table table-striped table-responsive mx-auto">
 				                  <thead>
@@ -504,51 +509,52 @@
 				                     		<td><?php echo $admin['tlf'] ?></td>
 				                     		<td><?php echo $admin['type'] ?></td>
 				                     		<td><?php echo $admin['active'] ?></td>
-				                     		
-				                     		
+
+
 				                     	</tr>
 				                     	<?php } ?>
 				                    </tbody>
 				                  </table>
-				                
+
 				              </div> <!-- ******************* FIN 2DO TAB ***************** -->
-				                
+
 				            </div>
 			        	</div> <!-- ****************** FIN PANEL DE GESTION DE USUARIO ****************** -->
-         
+
          		</div> <!-- FIN PANELES DENTRO DE TAB-CONTEN -->
   			</div>
 		</div>
 	</div>
-	
-	
+</div>
+
+
 			<!-- -o-o-o-o-o-o-o-o-o-o- SCRIPT -o-o-o-o-o-o-o-o-o-o- -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="./src/assets/js/bigSlide.min.js"></script>
+	<script>
+		$(document).ready(function() {
+				$('.menu-link').bigSlide();
+		});
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<script src="./src/app_api/modules/ambulancias/controller.js"></script>
 	<!-- <script src="./src/app_api/modules/admin/controller.js"></script> -->
 	<script>
+
 		$('#myModal').on('shown.bs.modal', function () {
   			$('#myInput').trigger('focus')
 		})
-	</script>
 
-	<!-- <script>
-		
-		<a href='#exampleModa?editar=".$ambulacia['id']."'>
-	</script> -->
-
-	<script >
-			function editarambu(datos){
-				 d=datos.split('||');
-				 $('#idambu').val(d[0]);
-				 $('#modeloedit').val(d[1]);
-				 $('#placaedit').val(d[2]);
-				 $('#tipoedit').val(d[3]);
+		function editarambu(datos){
+			d=datos.split('||');
+			$('#idambu').val(d[0]);
+			$('#modeloedit').val(d[1]);
+			$('#placaedit').val(d[2]);
+			$('#tipoedit').val(d[3]);
 		}
 
-		
+
 	</script>
 </body>
 </html>

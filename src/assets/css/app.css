@@ -9,7 +9,7 @@ body {
 	font-family: 'Rubik';
     src: url(../fonts/Rubik-Light.ttf);
 }
-@media (min-width: 300px) and (max-width: 767.98px) { 
+@media (min-width: 300px) and (max-width: 767.98px) {
 	.carpuselEdit{
 		display: none;
 	}
@@ -95,7 +95,7 @@ body {
 	margin-right: 0px;
 }
  .btnserv{
- 	background-color: rgba(7, 188, 131, 1); 
+ 	background-color: rgba(7, 188, 131, 1);
  	position: fixed;
  }
 /* -0-0-0-0-0-0-0 FIN SERVICIOS -0-0-0-0-0-0- */
@@ -148,6 +148,16 @@ body {
 }
 .bgwhite{
 	background: white;
+}
+
+.panel {
+    position: fixed;
+    left: -15.625em; /*left or right and the width of your navigation panel*/
+    width: 15.625em; /*should match the above value*/
+}
+
+.wrap {
+    position: relative;
 }
 
 /*-0-0-0-0-0- FIN MENU ADMINISTRADOR FIN MENU ADMINISTRADOR  -0-0-0-0-0-*/
