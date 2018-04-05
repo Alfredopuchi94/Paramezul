@@ -45,7 +45,9 @@
 	<?php require_once 'menu.php'; ?>
 </header><!-- /header -->
 	<div id="botonservicio" class="btn fixed-bottom w-25 mb-4 btnserv mx-auto disabled">
-		<a class="navbar-brand text-white" href="<?php if ($_COOKIE['email']) { ?>servicio <?php }else{echo "#";} ?>">Servicios de ambulancias</i></a>
+		<span class="d-inline-block" data-toggle="popover" data-trigger="focus" data-content="Inicia Sesión para solicitar un servicio">
+			<a class="navbar-brand text-white" href="<?php if ($_COOKIE['email']) { ?>servicio <?php }else{echo "#";} ?>">Servicios de ambulancias</i></a>
+		</span>
 	</div>
 
 	
@@ -268,9 +270,16 @@
 		<?php
 		if ($_COOKIE['email']) {?>
 			 $("#botonservicio").removeClass("disabled");
+			 $("#botonservicio").find("span").removeAttr('data-toggle');
+
 		<?php } else {
 		
 		}?>
+	</script>
+	<script>
+		$(function () {
+  		$('[data-toggle="popover"]').popover()
+		})
 	</script>
 </body>
 </html>

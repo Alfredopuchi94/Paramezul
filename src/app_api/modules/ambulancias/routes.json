@@ -8,8 +8,8 @@
 		"type" : "GET"
 	},
 	"update" : {
-		"url" : "",
-		"type" : "PUT"
+		"url" : "./src/app_api/modules/ambulancias/crud/actualizarambu.php",
+		"type" : "POST"
 	},
 	"delete" : {
 		"url" : "",

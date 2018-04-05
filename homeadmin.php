@@ -17,7 +17,10 @@
 		$con = new mysqli('mysql.hostinger.es', 'u420574110_param', '123456', 'u420574110_param');
 		$datos = $con->query("SELECT * FROM administrador");
 		$datos2 = $con->query("SELECT * FROM ambulancia");
-?>
+
+	          
+
+	              ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -346,24 +349,28 @@
 		                    <tbody class="text-center justify-content-center">
 
 		                     	<?php $counter = 1;
-		                     	 while($ambulacia = mysqli_fetch_array($datos2)){ 
-				                     echo "<tr>";
-				                     		echo "<td>";  echo $counter; </td>
-				                     		echo "<td>";  echo $ambulacia['modelo']; echo "</td>";
-				                     		echo "<td>";  echo $ambulacia['placa']; echo "</td>";
-				                     		echo "<td>";  echo $ambulacia['tipo']; echo "</td>";
-				                     		
-				                  			echo "<td class="pr-5"><a href="#exampleModal"><button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><span class="fas fa-pencil-alt"></span></button></a>
-		                        		<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
-				                     		
-				                     	</tr>
+		                     	 while($ambulacia = mysqli_fetch_array($datos2)){
+		                     	  $datos =
+		                     	  $ambulacia[0]."||".
+		                     	  $ambulacia[1]."||".
+		                     	  $ambulacia[2]."||".
+		                     	  $ambulacia[3];
+		                     	  	 ?>
+				                     <tr>
+				                     		<td> <?php echo $counter; ?> </td>
+				                     		<td> <?php echo $ambulacia['modelo'];  ?>   </td>
+				                     		<td> <?php echo $ambulacia['placa']; ?>   </td>
+				                     		<td> <?php echo $ambulacia['tipo']; ?>   </td>
+				                     		<td class="pr-5">
+				                  			<button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick="editarambu('<?php echo $datos ?>')"><span class="fas fa-pencil-alt"></span></button>
+																<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>				                     		
+				                     </tr>
 
-				                     	 $counter++; } 
-
-				                     	 ?>
+				                     	 
+				                     <?php $counter++; } ?>
+		                         
+				                     	
 		                       
-		                        
-		                      
 		                    </tbody>
 		                  </table>
 
@@ -371,7 +378,7 @@
 	                </div> <!-- ******************* FIN 2DO TAB ***************** -->
 	                
 	              </div>
-	              <div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	   						<div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
 								      <div class="modal-header">
@@ -381,30 +388,28 @@
 								        </button>
 								      </div>
 								      <div class="modal-body">
-								       		<form id="form_update_ambulancias" name="form_ambulancias" method="post" action="">
+								       		<form method="POST" action="" id="formeditambu">
 					                  <div id="form_message"></div>
+					                  <input type="number" hidden="" id="idambu" name="">
 					                  <div class="form-group mt-4">
 					                    <label for="modelo">Modelo de Ambulancia:</label>
-					                    <input type="text" class="form-control" name="modelo" id="modelo" required placeholder="Toyota">
+					                    <input type="text" class="form-control" name="" id="modeloedit">
 					                  </div>
 					                  <div class="form-group">
 					                    <label for="placa">Numero de Placa:</label>
-					                    <input type="text" class="form-control" name="placa" id="placa" required placeholder="CH540BA">
+					                    <input type="text" class="form-control" name=""  id="placaedit">
 					                    <div class="invalid-feedback"></div>
 					                  </div>
 					                  <div class="form-group">
 					                    <label for="tipo">Tipo de ambulancia:</label>
-					                    <input type="text" class="form-control" name="tipo" id="tipo" required placeholder="Microbus">
+					                    <input type="text" class="form-control" name="" id="tipoedit">
 					                    <div class="invalid-feedback"></div>
 					                  </div>
-					                  <div class="text-center">   
-					                  	<button type="submit" name="submit" class="btn btn-primary mt-4 w-25" method="post" value="Guardar Datos"><span id="sub">Registrar</span></button>
-					                  </div>
-						            </form>
 								      </div>
 								      <div class="modal-footer">
 								        <button type="submit" name="submit" class="btn btn-primary" method="post" value="Guardar Cambios"><span id="sub">Guardar Cambios</span></button>
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						            </form>
 								      </div>
 								    </div>
 								  </div>
@@ -530,12 +535,20 @@
 	</script>
 
 	<!-- <script>
-		$("body").on("click","#profile a",function(event){
-			event.preventDefault();
-			idsele = $(this).attr("id");
-			nombresele = $(this).children("td:eq(0)").text();
-			alert("nombresele");
-		});
+		
+		<a href='#exampleModa?editar=".$ambulacia['id']."'>
 	</script> -->
+
+	<script >
+			function editarambu(datos){
+				 d=datos.split('||');
+				 $('#idambu').val(d[0]);
+				 $('#modeloedit').val(d[1]);
+				 $('#placaedit').val(d[2]);
+				 $('#tipoedit').val(d[3]);
+		}
+
+		
+	</script>
 </body>
 </html>
