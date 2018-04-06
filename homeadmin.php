@@ -33,7 +33,6 @@
 	<link rel="stylesheet" href="./src/assets/css/bootstrap-notifications.css">
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
 </head>
 <body>
 	<nav id="menu" class="panel" role="navigation">
@@ -61,53 +60,53 @@
 
 			<div class="dropdown">
 				<button class="btn dropdown-toggle bgtransp text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-bell"></i></button>
-					<div class="dropdown-menu notifications" aria-labelledby="dropdownMenuButton" style="overflow-y: scroll; min-width: 100px; min-height: 100px; max-width: 500px; max-height: 400px;">
-						<div class="dropdown-container">
-						   <div class="dropdown-toolbar">
-						      <div class="dropdown-toolbar-actions">
-						        <a href="#"><i class="glyphicon glyphicon-search"></i> View All</a>
-						      </div>
-						      <h6 class="dropdown-toolbar-title">Recent Notifications  (3)</h6>
-						    </div><!-- /dropdown-toolbar -->
-						</div>
-						<ul class="notifications">
-						  <li class="notification">
-						      <div class="media">
-						        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-						        <div class="media-body">
-						          <strong class="notification-title font-weight-bold">Alfredo Puchi</strong>
-						          <p class="notification-desc"><p class="font-weight-bold">Ubicacion:</p>la rosaleda,<p class="font-weight-bold">Telefono:</p>04126691727,<p class="font-weight-bold">Diagnostico:</p>Cansancio
-						          <div class="notification-meta">
-						            <small class="timestamp">27. 11. 2015, 15:00</small>
-						          </div>
-						        </div>
-						      </div>
-						  </li>
-						  <li class="notification">
-						      <div class="media">
-						        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-						        <div class="media-body">
-						          <strong class="notification-title"><a href="#">Nikola Tesla</a> resolved <a href="#">T-14 - Awesome stuff</a></strong>
-						          <p class="notification-desc">Resolution: Fixed, Work log: 4h</p>
-						          <div class="notification-meta">
-						            <small class="timestamp">27. 10. 2015, 08:00</small>
-						          </div>
-						        </div>
-						      </div>
-						  </li>
-						  <li class="notification">
-						      <div class="media">
-						        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-						        <div class="media-body">
-						          <strong class="notification-title"><a href="#">James Bond</a> resolved <a href="#">B-007 - Desolve Spectre organization</a></strong>
-						          <div class="notification-meta">
-						            <small class="timestamp">1. 9. 2015, 08:00</small>
-						          </div>
-						        </div>
-						      </div>
-						  </li>
-						</ul>
+				<div class="dropdown-menu notifications" aria-labelledby="dropdownMenuButton" style="overflow-y: scroll; min-width: 100px; min-height: 100px; max-width: 500px; max-height: 400px;">
+					<div class="dropdown-container">
+					   <div class="dropdown-toolbar">
+				      <div class="dropdown-toolbar-actions">
+				        <a href="#"><i class="glyphicon glyphicon-search"></i> View All</a>
+				      </div>
+				      <h6 class="dropdown-toolbar-title">Recent Notifications  (3)</h6>
+				    </div><!-- /dropdown-toolbar -->
 					</div>
+					<ul class="notifications">
+					  <li class="notification">
+					      <div class="media">
+					        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
+					        <div class="media-body">
+					          <strong class="notification-title font-weight-bold">Alfredo Puchi</strong>
+					          <p class="notification-desc"><p class="font-weight-bold">Ubicacion:</p>la rosaleda,<p class="font-weight-bold">Telefono:</p>04126691727,<p class="font-weight-bold">Diagnostico:</p>Cansancio
+					          <div class="notification-meta">
+					            <small class="timestamp">27. 11. 2015, 15:00</small>
+					          </div>
+					        </div>
+					      </div>
+					  </li>
+					  <li class="notification">
+					      <div class="media">
+					        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
+					        <div class="media-body">
+					          <strong class="notification-title"><a href="#">Nikola Tesla</a> resolved <a href="#">T-14 - Awesome stuff</a></strong>
+					          <p class="notification-desc">Resolution: Fixed, Work log: 4h</p>
+					          <div class="notification-meta">
+					            <small class="timestamp">27. 10. 2015, 08:00</small>
+					          </div>
+					        </div>
+					      </div>
+					  </li>
+					  <li class="notification">
+					      <div class="media">
+					        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
+					        <div class="media-body">
+					          <strong class="notification-title"><a href="#">James Bond</a> resolved <a href="#">B-007 - Desolve Spectre organization</a></strong>
+					          <div class="notification-meta">
+					            <small class="timestamp">1. 9. 2015, 08:00</small>
+					          </div>
+					        </div>
+					      </div>
+					  </li>
+					</ul>
+				</div>
 			</div>
 
 			<div class="dropdown show mr-4">
@@ -121,11 +120,11 @@
 			</div>
     </nav>
 
-		<div class="container">
-			<div class="row mt-4">
-      	<div class="col-md-12">
+		<div class="container-fluid">
+			<div class="row mt-2">
+      	<div class="col-md-8 col-sm-12 order-sm-2 order-1">
       		<div class="tab-content " id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
-					<!-- ****************** PANEL DE INICIO ****************** -->
+						<!-- ****************** PANEL DE INICIO ****************** -->
 						<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio" style="background: white;">
 					 		<h3 class="text-center"><strong>PARAMEZUL</strong></h3><hr>
 					 		<div class="row">
@@ -134,7 +133,7 @@
 								  		<div class="card-header">
 								  			<div class="row">
 								  				<div class="col-md-3">
-								  					<i class="fas fa-ambulance fa-5x"></i>
+								  					<i class="fas fa-ambulance fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
 								  					<div class="huge">10</div>
@@ -157,7 +156,7 @@
 								  		<div class="card-header">
 								  			<div class="row">
 								  				<div class="col-md-3">
-								  					<i class="fas fa-user-circle fa-5x"></i>
+								  					<i class="fas fa-user-circle fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
 								  					<div class="huge">3</div>
@@ -180,7 +179,7 @@
 								  		<div class="card-header">
 								  			<div class="row">
 								  				<div class="col-md-3">
-								  					<i class="fas fa-users fa-5x"></i>
+								  					<i class="fas fa-users fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
 								  					<div class="huge">87</div>
@@ -203,7 +202,7 @@
 								  		<div class="card-header">
 								  			<div class="row">
 								  				<div class="col-md-3">
-								  					<i class="fas fa-cart-plus fa-5x"></i>
+								  					<i class="fas fa-cart-plus fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
 								  					<div class="huge">105</div>
@@ -453,6 +452,49 @@
 				    			</div> <!-- ****************** FIN PANEL DE GESTION DE USUARIO ****************** -->
 	        </div>
 	  		</div>
+				<div class="col-md-4 col-sm-12 order-sm-1  order-2 container-noti">
+					<h2 class="text-center">Notifications</h2>
+					<div id="dispatch-notifications">
+						<hr>
+						<ul class="notifications">
+							<li class="notification">
+									<div class="media">
+										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
+										<div class="media-body">
+											<strong class="notification-title font-weight-bold">Alfredo Puchi</strong>
+											<p class="notification-desc"><p class="font-weight-bold">Ubicacion:</p>la rosaleda,<p class="font-weight-bold">Telefono:</p>04126691727,<p class="font-weight-bold">Diagnostico:</p>Cansancio
+											<div class="notification-meta">
+												<small class="timestamp">27. 11. 2015, 15:00</small>
+											</div>
+										</div>
+									</div>
+							</li>
+							<li class="notification">
+									<div class="media">
+										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
+										<div class="media-body">
+											<strong class="notification-title"><a href="#">Nikola Tesla</a> resolved <a href="#">T-14 - Awesome stuff</a></strong>
+											<p class="notification-desc">Resolution: Fixed, Work log: 4h</p>
+											<div class="notification-meta">
+												<small class="timestamp">27. 10. 2015, 08:00</small>
+											</div>
+										</div>
+									</div>
+							</li>
+							<li class="notification">
+									<div class="media">
+										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
+										<div class="media-body">
+											<strong class="notification-title"><a href="#">James Bond</a> resolved <a href="#">B-007 - Desolve Spectre organization</a></strong>
+											<div class="notification-meta">
+												<small class="timestamp">1. 9. 2015, 08:00</small>
+											</div>
+										</div>
+									</div>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

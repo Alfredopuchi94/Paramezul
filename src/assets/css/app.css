@@ -1,6 +1,9 @@
 body {
-	margin: 0;
+	position: relative;
 	padding: 0;
+	margin: 0;
+	background-color: white;
+	font-family: Rubik;
 }
 .navbar {
     margin-top: 0px !important;
@@ -22,12 +25,7 @@ body {
 		height: 115px;
 	}
 }
-body {
-	position: relative;
-	margin: 0;
-	background-color: white;
-	font-family: Rubik;
-}
+
 .linia1{
 	background-color:rgb(2, 184, 191);
 	height: 10px;
@@ -161,3 +159,9 @@ body {
 }
 
 /*-0-0-0-0-0- FIN MENU ADMINISTRADOR FIN MENU ADMINISTRADOR  -0-0-0-0-0-*/
+
+.container-noti {
+	height: 90vh;
+	min-height: 100px;
+	overflow-y: scroll;
+}

@@ -93,9 +93,9 @@ if ($_COOKIE['email']) {
 
 															<input
 																type="hidden"
-																name="id_cliente"
-																id="id_cliente"
-																value="<?php echo $_SESSION["__id"]; ?>"
+																name="email"
+																id="email"
+																value="<?php echo $_COOKIE["email"]; ?>"
 															>
 
 														  <div class="form-group">
