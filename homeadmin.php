@@ -121,14 +121,14 @@
     </nav>
 
 		<div class="container-fluid">
-			<div class="row mt-2">
-      	<div class="col-md-8 col-sm-12 order-sm-2 order-1">
+			<div class="row">
+      	<div class="col-md-8 col-sm-12 order-sm-2 order-1 mt-4">
+					<h2 class="text-center">PARAMEZUL</h2><hr>
       		<div class="tab-content " id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
 						<!-- ****************** PANEL DE INICIO ****************** -->
 						<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio" style="background: white;">
-					 		<h3 class="text-center"><strong>PARAMEZUL</strong></h3><hr>
 					 		<div class="row">
-					 			<div class="col-lg-3 col-md-6 col-sm-12">
+					 			<div class="col-md-6 col-sm-12 mt-4">
 					 				<div class="card border-info text-info">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -151,7 +151,7 @@
 										</a>
 									</div>
 					 			</div>
-					 			<div class="col-lg-3 col-md-6 col-sm-12">
+					 			<div class="col-md-6 col-sm-12 mt-4">
 					 				<div class="card border-danger text-danger">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -174,7 +174,7 @@
 										</a>
 									</div>
 					 			</div>
-					 			<div class="col-lg-3 col-md-6 col-sm-12">
+					 			<div class="col-md-6 col-sm-12 mt-4">
 					 				<div class="card border-warning text-warning">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -192,12 +192,11 @@
 										   <span class="align-content-around">Ver Clientes</span>
 										   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
 										   <div class="clearfix"></div>
-
 											</div>
 										</a>
 									</div>
 					 			</div>
-					 			<div class="col-lg-3 col-md-6 col-sm-12">
+					 			<div class="col-md-6 col-sm-12 mt-4">
 					 				<div class="card border-success text-success">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -215,23 +214,12 @@
 										   <span class="align-content-around">Ver Servicios</span>
 										   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
 										   <div class="clearfix"></div>
-
 											</div>
 										</a>
-
 									</div>
 					 			</div>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
-					 			<br>
 					 		</div>
+							<br>
 						</div>
 						<!-- ****************** FIN PANEL DE INICIO ****************** -->
 
@@ -305,12 +293,7 @@
 			                  			<button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick="editarambu('<?php echo $datos ?>')"><span class="fas fa-pencil-alt"></span></button>
 															<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
 			                     </tr>
-
-
 			                     <?php $counter++; } ?>
-
-
-
 	                    </tbody>
 	                  </table>
 									</div>
@@ -452,36 +435,61 @@
 				    			</div> <!-- ****************** FIN PANEL DE GESTION DE USUARIO ****************** -->
 	        </div>
 	  		</div>
-				<div class="col-md-4 col-sm-12 order-sm-1  order-2 container-noti">
+				<div class="col-md-4 col-sm-12 container-noti order-sm-1 order-2 pt-4" style="background: #eee;">
 					<h2 class="text-center">Notifications</h2>
-					<div id="dispatch-notifications">
-						<hr>
-						<ul class="notifications">
-							<li class="notification">
-									<div class="media">
-										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-										<div class="media-body">
-											<strong class="notification-title font-weight-bold">Alfredo Puchi</strong>
-											<p class="notification-desc"><p class="font-weight-bold">Ubicacion:</p>la rosaleda,<p class="font-weight-bold">Telefono:</p>04126691727,<p class="font-weight-bold">Diagnostico:</p>Cansancio
-											<div class="notification-meta">
-												<small class="timestamp">27. 11. 2015, 15:00</small>
-											</div>
-										</div>
-									</div>
-							</li>
-							<li class="notification">
-									<div class="media">
-										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-										<div class="media-body">
-											<strong class="notification-title"><a href="#">Nikola Tesla</a> resolved <a href="#">T-14 - Awesome stuff</a></strong>
-											<p class="notification-desc">Resolution: Fixed, Work log: 4h</p>
-											<div class="notification-meta">
-												<small class="timestamp">27. 10. 2015, 08:00</small>
-											</div>
-										</div>
-									</div>
-							</li>
-							<li class="notification">
+					<hr>
+					<p class="lead text-center">Se actualizara en <span id="timer"> 00:00 </span></p>
+					<hr>
+						<div class="card text-center text-white bg-info">
+						  <div class="card-header">
+						    Estado: <b>REALIZADA</b>
+						  </div>
+						  <div class="card-body">
+						    <h6 class="card-title">LLAMAR: <strong>4046201010</strong></h6>
+						    <p class="card-text">
+									<b>Nombre:</b> Alfredo Puchi <br>
+									<b>Diagnostico:</b> Partida de piernas <br>
+									<b>Ubicacion:</b> Altamira, Rusia <br>
+								  <b>Fecha:</b> Enero 21, 2014, 01:05 pm
+								</p>
+						  </div>
+						</div>
+						<br>
+						<div class="card text-center text-white bg-warning">
+						  <div class="card-header">
+						    Estado: <b>PENDIENTE</b>
+						  </div>
+						  <div class="card-body">
+						    <h6 class="card-title">LLAMAR: <strong>4046201010</strong></h6>
+						    <p class="card-text">
+									<b>Nombre:</b> Alfredo Puchi <br>
+									<b>Diagnostico:</b> Partida de piernas <br>
+									<b>Ubicacion:</b> Altamira, Rusia <br>
+								  <b>Fecha:</b> Enero 21, 2014, 01:05 pm
+								</p>
+						    <button type="button" class="btn btn-light">Aceptar</button>
+						    <button type="button" class="btn btn-light">Rechazar</button>
+						  </div>
+						</div>
+						<br>
+						<div class="card text-center text-white bg-danger">
+						  <div class="card-header">
+						    Estado: <b>CANCELADA</b>
+						  </div>
+						  <div class="card-body">
+						    <h6 class="card-title">LLAMAR: <strong>4046201010</strong></h6>
+						    <p class="card-text">
+									<b>Nombre:</b> Alfredo Puchi <br>
+									<b>Diagnostico:</b> Partida de piernas <br>
+									<b>Ubicacion:</b> Altamira, Rusia <br>
+								  <b>Fecha:</b> Enero 21, 2014, 01:05 pm
+								</p>
+						  </div>
+						</div>
+						<br>
+						<!-- <ul class="notifications" id="notify"> -->
+							<!--
+								<li class="notification">
 									<div class="media">
 										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
 										<div class="media-body">
@@ -491,8 +499,9 @@
 											</div>
 										</div>
 									</div>
-							</li>
-						</ul>
+								</li>
+							-->
+						<!-- </ul> -->
 					</div>
 				</div>
 			</div>

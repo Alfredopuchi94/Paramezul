@@ -13,10 +13,10 @@
 			$res = false;
 			if (mysqli_ping($connect)) { $res = true; }
 			mysqli_close($connect);
-			
+
 			return $res;
 		}
-		// If exist the User 
+		// If exist the User
 		public function ifExist($table, $email){
 			$obj = new connect();
 			$connect = $obj->connection();
@@ -27,14 +27,14 @@
 			$result = mysqli_query($connect, $sql);
 			if (mysqli_num_rows($result) > 0) {
 			    while($row = mysqli_fetch_assoc($result)) {
-			       $res = true; 
+			       $res = true;
 			       break;
 			    }
 			}
 			mysqli_close($connect);
 			return $res;
 		}
-		
+
 		// Create User
 		public function create($fname,$lname,$email,$pass,$tlf){
 
@@ -49,9 +49,9 @@
 			$activate_code = md5(uniqid()).uniqid();
 			$date = date("Y-m-d H:i:s", time());
 
-			$sql= "INSERT INTO cliente (__id, fname, lname, email, tlf ,salt, hash, activate_code, active, created_at, update_at) 
+			$sql= "INSERT INTO cliente (__id, fname, lname, email, tlf ,salt, hash, activate_code, active, created_at, update_at)
 			VALUES ('$id','$fname','$lname','$email_s','$tlf','$salt','$hash','$activate_code','0','$date','$date')";
-			
+
 			if (mysqli_query($connect, $sql)) {
 			  $res = true;
 			  $obj = new Mailer();
@@ -86,7 +86,7 @@
 
 			return $res;
 		}
-		
+
 		//Check acount
 		public function checkAcount($table, $id, $salt){
 			$obj = new connect();
@@ -117,7 +117,7 @@
 			";
 			if (mysqli_query($connect, $update)){
 				$res = true;
-			} 
+			}
 			mysqli_close($connect);
 			return $res;
 		}
@@ -127,7 +127,7 @@
 	      $connect = $obj->connection();
 	      $res = 'not found';
 	      $email_lower = strtolower($email);
-		  $email_s = filter_var($email_lower, FILTER_SANITIZE_EMAIL);
+		    $email_s = filter_var($email_lower, FILTER_SANITIZE_EMAIL);
 	      $sql= "SELECT * FROM $table WHERE email='$email_s'";
 				$result = mysqli_query($connect, $sql);
 				if (mysqli_num_rows($result) > 0) {
@@ -144,8 +144,8 @@
 	      } else {
 	        return $res;
 	      }
-			} 
-			
+			}
+
 		// Create Servicio
 		public function notificar($id_cliente, $telf_contacto, $ubicacion, $tipo){
 
@@ -154,13 +154,13 @@
 			$res = false;
 			$id = uniqid();
 			$date = date("Y-m-d H:i:s", time());
-			
 
-			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, id_cliente, created_at, update_at) 
+
+			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, id_cliente, created_at, update_at)
 			VALUES ('$id','$ubicacion', '$telf_contacto', '$tipo', '$id_cliente', '$date', '$date')";
-			
+
 			if (mysqli_query($connect, $sql)) {
-				
+
 				$id_admin = '123abc';
 				$other = "INSERT INTO es_notificado (id_admin, id_notificacion) VALUES ('$id_admin', '$id')";
 

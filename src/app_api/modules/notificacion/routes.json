@@ -1,26 +1,6 @@
 {
-	"create": {
-		"url": "./src/app_api/modules/cliente/crud/create.php",
-		"type": "POST"
-	},
-	"show" : {
-		"url" : "",
-		"type" : "GET"
-	},
-	"update" : {
-		"url" : "",
-		"type" : "PUT"
-	},
-	"login" : {
-		"url" : "./src/app_api/modules/cliente/crud/login.php",
-		"type": "POST"
-	},
-	"delete" : {
-		"url" : "",
-		"type" : "DELETE"
-	},
-	"solicitud" : {
-		"url" : "./src/app_api/modules/cliente/crud/solicitud.php",
-		"type" : "POST"
+	"update": {
+		"url": "./src/app_api/modules/notificacion/crud/update.php",
+		"type": "GET"
 	}
 }
