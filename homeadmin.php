@@ -440,68 +440,8 @@
 					<hr>
 					<p class="lead text-center">Se actualizara en <span id="timer"> 00:00 </span></p>
 					<hr>
-						<div class="card text-center text-white bg-info">
-						  <div class="card-header">
-						    Estado: <b>REALIZADA</b>
-						  </div>
-						  <div class="card-body">
-						    <h6 class="card-title">LLAMAR: <strong>4046201010</strong></h6>
-						    <p class="card-text">
-									<b>Nombre:</b> Alfredo Puchi <br>
-									<b>Diagnostico:</b> Partida de piernas <br>
-									<b>Ubicacion:</b> Altamira, Rusia <br>
-								  <b>Fecha:</b> Enero 21, 2014, 01:05 pm
-								</p>
-						  </div>
-						</div>
-						<br>
-						<div class="card text-center text-white bg-warning">
-						  <div class="card-header">
-						    Estado: <b>PENDIENTE</b>
-						  </div>
-						  <div class="card-body">
-						    <h6 class="card-title">LLAMAR: <strong>4046201010</strong></h6>
-						    <p class="card-text">
-									<b>Nombre:</b> Alfredo Puchi <br>
-									<b>Diagnostico:</b> Partida de piernas <br>
-									<b>Ubicacion:</b> Altamira, Rusia <br>
-								  <b>Fecha:</b> Enero 21, 2014, 01:05 pm
-								</p>
-						    <button type="button" class="btn btn-light">Aceptar</button>
-						    <button type="button" class="btn btn-light">Rechazar</button>
-						  </div>
-						</div>
-						<br>
-						<div class="card text-center text-white bg-danger">
-						  <div class="card-header">
-						    Estado: <b>CANCELADA</b>
-						  </div>
-						  <div class="card-body">
-						    <h6 class="card-title">LLAMAR: <strong>4046201010</strong></h6>
-						    <p class="card-text">
-									<b>Nombre:</b> Alfredo Puchi <br>
-									<b>Diagnostico:</b> Partida de piernas <br>
-									<b>Ubicacion:</b> Altamira, Rusia <br>
-								  <b>Fecha:</b> Enero 21, 2014, 01:05 pm
-								</p>
-						  </div>
-						</div>
-						<br>
-						<!-- <ul class="notifications" id="notify"> -->
-							<!--
-								<li class="notification">
-									<div class="media">
-										<img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-										<div class="media-body">
-											<strong class="notification-title"><a href="#">James Bond</a> resolved <a href="#">B-007 - Desolve Spectre organization</a></strong>
-											<div class="notification-meta">
-												<small class="timestamp">1. 9. 2015, 08:00</small>
-											</div>
-										</div>
-									</div>
-								</li>
-							-->
-						<!-- </ul> -->
+					<div id="notification-panel">
+
 					</div>
 				</div>
 			</div>

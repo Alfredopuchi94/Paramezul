@@ -2,5 +2,9 @@
 	"update": {
 		"url": "./src/app_api/modules/notificacion/crud/update.php",
 		"type": "GET"
+	},
+	"activate": {
+		"url": "./src/app_api/modules/notificacion/crud/status.php",
+		"type": "POST"
 	}
 }

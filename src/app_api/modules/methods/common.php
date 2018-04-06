@@ -19,6 +19,8 @@
       $obj = new connect();
       $connect = $obj->connection();
       $res = 'not found';
+      $aux = 'not found';
+
       $sql= "SELECT * FROM notificacion'";
 			$result = mysqli_query($connect, $sql);
 			if (mysqli_num_rows($result) > 0) {
@@ -27,13 +29,25 @@
 			    break;
 			  }
 			}
-			mysqli_close($connect);
+
       if ($res['status']) {
-				// $datetime is something like: 2014-01-31 13:05:59
 				$time = strtotime($res['created_at']);
 				$res['created_at'] = date("F j, Y, g:i a", $time);
-				// $myFormatForView is something like: January 21, 2014, 01:05 pm
-        return $res;
-      }
+
+				$sql= "SELECT * FROM notificacion'";
+				$result = mysqli_query($connect, $sql);
+				if (mysqli_num_rows($result) > 0) {
+				  while($row = mysqli_fetch_assoc($result)) {
+				    $aux = $row;
+				    break;
+				  }
+				}
+				mysqli_close($connect);
+				if ($aux['__id']) {
+					$res['nombre'] = $aux['fname'].' '. $aux['lname'];
+					return $res;
+				}
+			}
 		}
+
 }
