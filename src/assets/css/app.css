@@ -165,3 +165,10 @@ body {
 	min-height: 100px;
 	overflow-y: scroll;
 }
+
+.navbar-toggle{
+	background-color: #17a2b8;
+}
+.navbar-toggle,.active{
+	background-color: transparent;
+}

@@ -17,6 +17,7 @@
 		$con = new mysqli('mysql.hostinger.es', 'u420574110_param', '123456', 'u420574110_param');
 		$datos = $con->query("SELECT * FROM administrador");
 		$datos2 = $con->query("SELECT * FROM ambulancia");
+		$ambucuenta = $con->query("SELECT COUNT(*) as cuenta FROM ambulancia");
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +36,14 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
-	<nav id="menu" class="panel" role="navigation">
-		<h4 class="mt-4">Menu Principal</h4>
-		<ul class="list-group list-group-flush">
+	<nav id="menu" class="panel" role="navigation" style="background-color: white;">
+		<h4 class="mt-4 text text-center">Menu Principal</h4>
+		<ul class="list-group list-group-flush" style="background-color:rgba(23, 164, 186, 0.54)">
 		  <li class="list-group-item">
-				<a class="nav-link hvr-underline-from-center"  id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true">
+				<!-- <a class="nav-link hvr-underline-from-center" id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true"> -->
 					<span data-feather="home"></span>
 					Inicio <span class="sr-only">(current)</span>
-				</a>
+				<!-- </a> -->
 			</li>
 		  <li class="list-group-item">
 				<a class="nav-link" id="ambulancia" data-toggle="tab" href="#ambu" role="tab" aria-controls="ambu" aria-selected="false">
@@ -57,57 +58,6 @@
 		  <button class="menu-link navbar-toggler" type="button" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 			</button>
-
-			<div class="dropdown">
-				<button class="btn dropdown-toggle bgtransp text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-bell"></i></button>
-				<div class="dropdown-menu notifications" aria-labelledby="dropdownMenuButton" style="overflow-y: scroll; min-width: 100px; min-height: 100px; max-width: 500px; max-height: 400px;">
-					<div class="dropdown-container">
-					   <div class="dropdown-toolbar">
-				      <div class="dropdown-toolbar-actions">
-				        <a href="#"><i class="glyphicon glyphicon-search"></i> View All</a>
-				      </div>
-				      <h6 class="dropdown-toolbar-title">Recent Notifications  (3)</h6>
-				    </div><!-- /dropdown-toolbar -->
-					</div>
-					<ul class="notifications">
-					  <li class="notification">
-					      <div class="media">
-					        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-					        <div class="media-body">
-					          <strong class="notification-title font-weight-bold">Alfredo Puchi</strong>
-					          <p class="notification-desc"><p class="font-weight-bold">Ubicacion:</p>la rosaleda,<p class="font-weight-bold">Telefono:</p>04126691727,<p class="font-weight-bold">Diagnostico:</p>Cansancio
-					          <div class="notification-meta">
-					            <small class="timestamp">27. 11. 2015, 15:00</small>
-					          </div>
-					        </div>
-					      </div>
-					  </li>
-					  <li class="notification">
-					      <div class="media">
-					        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-					        <div class="media-body">
-					          <strong class="notification-title"><a href="#">Nikola Tesla</a> resolved <a href="#">T-14 - Awesome stuff</a></strong>
-					          <p class="notification-desc">Resolution: Fixed, Work log: 4h</p>
-					          <div class="notification-meta">
-					            <small class="timestamp">27. 10. 2015, 08:00</small>
-					          </div>
-					        </div>
-					      </div>
-					  </li>
-					  <li class="notification">
-					      <div class="media">
-					        <img src="src/assets/img/photo.png" width="40px" height="40px;" class="mr-2 img-circle" alt="Name">
-					        <div class="media-body">
-					          <strong class="notification-title"><a href="#">James Bond</a> resolved <a href="#">B-007 - Desolve Spectre organization</a></strong>
-					          <div class="notification-meta">
-					            <small class="timestamp">1. 9. 2015, 08:00</small>
-					          </div>
-					        </div>
-					      </div>
-					  </li>
-					</ul>
-				</div>
-			</div>
 
 			<div class="dropdown show mr-4">
 			  	<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['fname'].' '.$_SESSION['lname']; ?></a>
@@ -136,19 +86,13 @@
 								  					<i class="fas fa-ambulance fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
-								  					<div class="huge">10</div>
+								  					<?php 
+								  					$resultadoambu = mysqli_fetch_array($ambucuenta); ?>
+								  					<div class="huge"><?php echo $resultadoambu['cuenta']; ?></div>
 								  					<div>Ambulancias</div>
 								  				</div>
 								  			</div>
 								  		</div>
-								  		<a href="#">
-											<div class="card-card-footer text-right pr-2 text-info">
-										   <span class="align-content-around">Ver Ambulancias</span>
-										   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
-										   <div class="clearfix"></div>
-
-											</div>
-										</a>
 									</div>
 					 			</div>
 					 			<div class="col-md-6 col-sm-12 mt-4">
@@ -164,14 +108,7 @@
 								  				</div>
 								  			</div>
 								  		</div>
-								  		<a href="#">
-											<div class="card-card-footer text-right pr-2 text-danger">
-										   <span class="align-content-around">Ver Administradores</span>
-										   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
-										   <div class="clearfix"></div>
-
-											</div>
-										</a>
+								  		
 									</div>
 					 			</div>
 					 			<div class="col-md-6 col-sm-12 mt-4">
@@ -187,13 +124,7 @@
 								  				</div>
 								  			</div>
 								  		</div>
-								  		<a href="#">
-											<div class="card-card-footer text-right pr-2 text-warning">
-										   <span class="align-content-around">Ver Clientes</span>
-										   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
-										   <div class="clearfix"></div>
-											</div>
-										</a>
+								  		
 									</div>
 					 			</div>
 					 			<div class="col-md-6 col-sm-12 mt-4">
@@ -209,13 +140,7 @@
 								  				</div>
 								  			</div>
 								  		</div>
-								  		<a href="#">
-											<div class="card-card-footer text-right pr-2 text-success">
-										   <span class="align-content-around">Ver Servicios</span>
-										   <span class="align-content-between"><i class="fas fa-arrow-circle-right"></i></span>
-										   <div class="clearfix"></div>
-											</div>
-										</a>
+								  		
 									</div>
 					 			</div>
 					 		</div>
@@ -290,17 +215,18 @@
 			                     		<td> <?php echo $ambulacia['placa']; ?>   </td>
 			                     		<td> <?php echo $ambulacia['tipo']; ?>   </td>
 			                     		<td class="pr-5">
-			                  			<button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick="editarambu('<?php echo $datos ?>')"><span class="fas fa-pencil-alt"></span></button>
+			                  			<button type="button" id="edit" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick="editarambu('<?php echo $datos; ?>')"><span class="fas fa-pencil-alt"></span></button>
 															<button id="eliminarArt" type="button" class="btn btn-danger delete"><span class="fa fa-trash"></span></button></td>
 			                     </tr>
 			                     <?php $counter++; } ?>
+
 	                    </tbody>
 	                  </table>
 									</div>
                 </div>
 	            </div>
 
-   						<div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							 <div class="modal" tabindex="-1" role="dialog" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
@@ -310,28 +236,28 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							       		<form method="POST" action="" id="formeditambu">
+							       		<form method="POST" action="src/app_api/php/modificar_ambulancia.php">
 				                  <div id="form_message"></div>
-				                  <input type="number" hidden="" id="idambu" name="">
 				                  <div class="form-group mt-4">
 				                    <label for="modelo">Modelo de Ambulancia:</label>
-				                    <input type="text" class="form-control" name="" id="modeloedit">
+				                    <input type="text" class="form-control" name="modeloedit" id="modeloedit">
 				                  </div>
 				                  <div class="form-group">
 				                    <label for="placa">Numero de Placa:</label>
-				                    <input type="text" class="form-control" name=""  id="placaedit">
+				                    <input type="text" class="form-control" name="placaedit" id="placaedit" >
 				                    <div class="invalid-feedback"></div>
 				                  </div>
 				                  <div class="form-group">
 				                    <label for="tipo">Tipo de ambulancia:</label>
-				                    <input type="text" class="form-control" name="" id="tipoedit">
+				                    <input type="text" class="form-control" name="tipoedit" id="tipoedit">
 				                    <div class="invalid-feedback"></div>
 				                  </div>
 							      </div>
 							      <div class="modal-footer">
-							        <button type="submit" name="submit" class="btn btn-primary" method="post" value="Guardar Cambios"><span id="sub">Guardar Cambios</span></button>
+							        <button type="submit" name="submit" class="btn btn-primary" value="Actualizar"><span id="sub">Guardar Cambios</span></button>
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					            </form>
+					  	
 							      </div>
 							    </div>
 							  </div>
@@ -435,7 +361,7 @@
 				    			</div> <!-- ****************** FIN PANEL DE GESTION DE USUARIO ****************** -->
 	        </div>
 	  		</div>
-				<div class="col-md-4 col-sm-12 container-noti order-sm-1 order-2 pt-4" style="background: #eee;">
+				<div class="col-md-3 col-sm-12 container-noti order-sm-1 order-2 pt-4" style="background: #eee;">
 					<h2 class="text-center">Notifications</h2>
 					<hr>
 					<p class="lead text-center">Se actualizara en <span id="timer"> 00:00 </span></p>
@@ -470,6 +396,8 @@
 			$('#modeloedit').val(d[1]);
 			$('#placaedit').val(d[2]);
 			$('#tipoedit').val(d[3]);
+
+			
 		}
 	</script>
 </body>
