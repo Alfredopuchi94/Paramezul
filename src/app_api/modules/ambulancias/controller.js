@@ -63,68 +63,7 @@ $( document ).ready(function() {
 						'</div>' )
 		}
 	});
-
-	$('#formeditambu').on('submit',function(e){
-		e.preventDefault()
-		var ex1 = ('#modelo' ,$("#modelo").val())
-		var ex2 = ('#placa' ,$("#placa").val())
-		var ex3 = ('#tipo' ,$("#tipo").val())
-		if (ex1 && ex2 && ex3) {
-			$.ajax({
-				beforeSend: function (){
-					$('#sub').html('<i class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>')
-					console.log('Status: tomo los datos')
-				},
-				url: route.update.url,
-				type: route.update.type,
-				data: $('#formeditambu').serialize(),
-				success: function (resp){
-					alert(resp);
-					res = JSON.parse(resp)
-					if (res.save == true) {
-						$('#formeditambu')[0].reset()
-							$('#sub').html('<i style="color:green;" class="fa fa-floppy-o" aria-hidden="true"></i>')
-					} else{
-						$('#sub').html('<i style="color:red;" class="fa fa-exclamation-circle" aria-hidden="true"></i>')
-					}
-					console.log(res)
-						$('#form_message').html(	
-							'<div class="alert alert-light alert-dismissible fade show" role="alert">'+
-							'		<ul>'+
-							'			<li>Connection : '+res.connection+'</li>'+
-							'			<li>Found : '+res.found+'</li>'+
-							'			<li>Save : '+res.save+'</li>'+
-							'		</ul>'+
-							'		<button class="close" data-dismiss="alert" aria-label="Close">'+ 
-							'			<i class="fa fa-window-close" aria-hidden="true"></i>'+
-							'		</button>'+
-							'</div>' )
-				},
-				error: function (jqXHR,estado,error) {
-					console.log('----------------------')
-					console.log('Status: Entro en error')
-					console.log(estado)
-					console.log(error)
-				},
-				complete: function (jqXHR,estado) {
-					console.log('----------------------')
-					console.log(estado)
-				},
-				timeout: 80000
-			})
-		} else {
-				$('#form_message').html(	
-						'<div class="alert alert-light alert-dismissible fade show" role="alert">'+
-						'		<h3>Validation problems</h3>'+
-						'		<button class="close" data-dismiss="alert" aria-label="Close">'+ 
-						'			<i class="fa fa-window-close" aria-hidden="true"></i>'+
-						'		</button>'+
-						'</div>' )
-		}
-	});
-
 	
-
 });
 
 function validateName(input, str){
