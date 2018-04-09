@@ -1,4 +1,7 @@
-{
+{	"create": {
+		"url": "./src/app_api/modules/notificacion/crud/create.php",
+		"type": "POST"
+	},
 	"update": {
 		"url": "./src/app_api/modules/notificacion/crud/update.php",
 		"type": "GET"

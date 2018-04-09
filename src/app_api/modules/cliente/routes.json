@@ -19,6 +19,10 @@
 		"url" : "",
 		"type" : "DELETE"
 	},
+	"recovery" : {
+		"url" : "./src/app_api/modules/cliente/crud/recovery.php",
+		"type" : "POST"
+	},
 	"solicitud" : {
 		"url" : "./src/app_api/modules/cliente/crud/solicitud.php",
 		"type" : "POST"

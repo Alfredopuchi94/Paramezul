@@ -62,7 +62,7 @@ function rechazada (a){
 	'		</div>'+
 	'	</div><br>'
 	}
-}
+});
 
 // Funcion para ir actualizando cada 60 segundos
 	function actualizar() {

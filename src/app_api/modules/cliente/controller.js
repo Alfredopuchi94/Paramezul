@@ -1,4 +1,5 @@
-$( document ).ready(function() {
+$( document ).ready(function() 
+{
 	var route = {};
 	$.getJSON( "./src/app_api/modules/cliente/routes.json", function( data ) {
 		route = data;
@@ -67,7 +68,63 @@ $( document ).ready(function() {
 						'</div>' )
 		}
 
-	});
+	})
+
+	$('#recovery_form_client').on('submit',function(e){
+		e.preventDefault()
+
+		var exp = validateEmail('#emailRC' ,$("#emailRC").val())
+
+		if (exp) {
+			$.ajax({
+				beforeSend: function (){
+					$('#subRC').html('<i class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>')
+				},
+				url: route.recovery.url,
+				type: route.recovery.type,
+				data: $('#recovery_form_client').serialize(),
+				success: function (resp) {
+					res = JSON.parse(resp)
+					if (res.send == true) {
+						$('#recovery_form_client')[0].reset()
+						$('#subRC').html('<i style="color:green;" class="fa fa-floppy-o" aria-hidden="true"></i>')
+						alert('Mensaje enviado')
+					} else {
+						$('#subRC').html('<i style="color:red;" class="fa fa-exclamation-circle" aria-hidden="true"></i>')
+						alert('Ups! hubo un problema')
+					}
+					console.log(res)
+					$('#form_message').html(
+						'<div class="alert alert-light alert-dismissible fade show" role="alert">'+
+						'		<ul>'+
+						'			<li>Connection : '+res.connection+'</li>'+
+						'			<li>Found : '+res.found+'</li>'+
+						'			<li>Send : '+res.send+'</li>'+
+						'		</ul>'+
+						'		<button class="close" data-dismiss="alert" aria-label="Close">'+
+						'			<i class="fa fa-window-close" aria-hidden="true"></i>'+
+						'		</button>'+
+						'</div>' )
+				},
+				error: function (jqXHR,estado,error) {
+					console.log('----------------------')
+					console.log('Status: Entro en error')
+					console.log(estado)
+					console.log(error)
+				},
+				complete: function (jqXHR,estado) {
+				}
+			})
+		} else {
+			$('#form_message').html(
+						'<div class="alert alert-light alert-dismissible fade show" role="alert">'+
+						'		<h3>Validation problems</h3>'+
+						'		<button class="close" data-dismiss="alert" aria-label="Close">'+
+						'			<i class="fa fa-window-close" aria-hidden="true"></i>'+
+						'		</button>'+
+						'</div>' )
+		}
+	})
 
 	/** Login */
 	$('#form_login_cliente').on('submit',function(e){
@@ -172,7 +229,7 @@ $( document ).ready(function() {
 				'		</button>' +
 				'</div>')
 		}
-	});
+	})
 });
 
 /** Validate Functions -----------------------*/
