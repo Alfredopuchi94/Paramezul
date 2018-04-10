@@ -177,7 +177,7 @@ $( document ).ready(function()
 	/** Servicio */
 	$('#form_servicio').on('submit', function (e) {
 		e.preventDefault()
-		var exp = validateTelephone('#tlf', $("#tlf").val())
+		var exp = validateTelephone('#telf_contacto', $("#telf_contacto").val())
 		if (exp) {
 			$.ajax({
 				beforeSend: function () {

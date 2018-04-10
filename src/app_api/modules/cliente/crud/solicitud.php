@@ -11,17 +11,19 @@
 
 	if(!empty($_POST)){
 
-		$id = $_POST["id_cliente"];
+		$email = $_POST["email"];
 		$telf = $_POST["telf_contacto"];
 		$ubicacion = $_POST["ubicacion"];
 		$tipo = $_POST["tipo"];
 
-		if(isset($id) && isset($telf) && isset($ubicacion) && isset($tipo)){
+		if(isset($email) && isset($telf) && isset($ubicacion) && isset($tipo)){
 
-			if($id!="" && $telf!="" && $ubicacion!="" && $tipo!=""){
+			if($email!="" && $telf!="" && $ubicacion!="" && $tipo!=""){
+				$res['validacion'] = true;
 
 				$obj = new Methods();
-				$resp = $obj->notificar( $id, $telf, $ubicacion, $tipo );
+				$resp = $obj->notificar( $email, $telf, $ubicacion, $tipo );
+				$res['resp'] = $resp;
 
 				if ($resp){
 					$res['sent'] = true;

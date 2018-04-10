@@ -270,7 +270,7 @@
     }
 
 		// Create Servicio
-		public function notificar($id_cliente, $telf_contacto, $ubicacion, $tipo){
+		public function notificar($email, $telf_contacto, $ubicacion, $tipo){
 
 			$obj = new connect();
 			$connect = $obj->connection();
@@ -279,8 +279,8 @@
 			$date = date("Y-m-d H:i:s", time());
 
 
-			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, id_cliente, created_at, update_at)
-			VALUES ('$id','$ubicacion', '$telf_contacto', '$tipo', '$id_cliente', '$date', '$date')";
+			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, email_cliente, created_at, update_at)
+			VALUES ('$id','$ubicacion', '$telf_contacto', '$tipo', '$email', '$date', '$date')";
 
 			if (mysqli_query($connect, $sql)) {
 

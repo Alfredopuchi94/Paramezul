@@ -86,7 +86,7 @@ CREATE TABLE `notificacion` (
   `telefono` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'PENDIENTE',
-  `id_cliente` int(11) NOT NULL,
+  `email_cliente` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
