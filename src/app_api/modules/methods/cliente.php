@@ -275,7 +275,7 @@
 			$obj = new connect();
 			$connect = $obj->connection();
 			$res = false;
-			$id = uniqid();
+			$id = md5(uniqid());
 			$date = date("Y-m-d H:i:s", time());
 
 
