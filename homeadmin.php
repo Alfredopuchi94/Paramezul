@@ -15,7 +15,7 @@
 			}
 		}
 		$con = new mysqli('mysql.hostinger.es', 'u420574110_param', '123456', 'u420574110_param');
-		$datos = $con->query("SELECT * FROM administrador");
+		$cli = $con->query("SELECT * FROM cliente");
 		$datos2 = $con->query("SELECT * FROM ambulancia");
 		$ambucuenta = $con->query("SELECT COUNT(*) as cuenta FROM ambulancia");
 ?>
@@ -40,14 +40,19 @@
 		<h4 class="mt-4 text text-center">Menu Principal</h4>
 		<ul class="list-group list-group-flush" style="background-color:rgba(23, 164, 186, 0.54)">
 		  <li class="list-group-item">
-				<!-- <a class="nav-link hvr-underline-from-center" id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true"> -->
+				<a class="nav-link hvr-underline-from-center" id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true">
 					<span data-feather="home"></span>
 					Inicio <span class="sr-only">(current)</span>
-				<!-- </a> -->
+				</a>
 			</li>
 		  <li class="list-group-item">
 				<a class="nav-link" id="ambulancia" data-toggle="tab" href="#ambu" role="tab" aria-controls="ambu" aria-selected="false">
 					Gestion de Ambulancias
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a class="nav-link" id="cliente" data-toggle="tab" href="#clien" role="tab" aria-controls="clien" aria-selected="false">
+					Clientes
 				</a>
 			</li>
 		</ul>
@@ -72,7 +77,7 @@
 
 		<div class="container-fluid">
 			<div class="row">
-      	<div class="col-md-8 col-sm-12 order-sm-2 order-1 mt-4">
+      	<div class="col-md-8 col-sm-12 order-sm-2 order-1 mt-4 mx-auto">
 					<h2 class="text-center">PARAMEZUL</h2><hr>
       		<div class="tab-content " id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
 						<!-- ****************** PANEL DE INICIO ****************** -->
@@ -358,7 +363,41 @@
 				                </table>
 											</div>
 
-				    			</div> <!-- ****************** FIN PANEL DE GESTION DE USUARIO ****************** -->
+				    </div> <!-- ****************** FIN PANEL DE GESTION DE USUARIO ****************** -->
+
+				    <div class="tab-pane fade" id="clien" role="tabpanel" aria-labelledby="cliente" style="background: white;">
+					      <h3 class="text-center"><strong>Listado de Usuarios</strong></h3><hr>
+							 			<table class="table table-striped table-responsive mx-auto" style="background: white;">
+		                  <thead>
+		                    <tr class="text-center justify-content-center">
+		                      <th class="pr-5" scope="col">Nombre</th>
+		                      <th class="pr-5" scope="col">Apellido</th>
+		                      <th class="pr-5" scope="col">Correo</th>
+		                      <th class="pr-5" scope="col">Telefono</th>
+		                      <th class="pr-5" scope="col">Estado</th>
+	                      </tr>
+	                    </thead>
+	                    <tbody class="text-center justify-content-center">
+	                     <?php while($client = mysqli_fetch_array($cli)){
+	                      	if ($client['active'] = 1) {
+	                      		$client['active'] = "pre";
+	                      	} else{
+	                      		$client['active'] = "No Activo";
+	                      	}
+	                       ?>
+	                     	<tr>
+	                     		<td><?php echo $client['fname'] ?></td>
+	                     		<td><?php echo $client['lname'] ?></td>
+	                     		<td><?php echo $client['email'] ?></td>
+	                     		<td><?php echo $client['tlf'] ?></td>
+	                     		<td><?php echo $client['active'] ?></td>
+	                     	</tr>
+	                     	<?php } ?>
+	                    </tbody>
+		                </table>
+
+				    </div> <!-- ****************** FIN PANEL LISTADO DE CLIENTE ****************** -->
+
 	        </div>
 	  		</div>
 				<div class="col-md-3 col-sm-12 container-noti order-sm-1 order-2 pt-4" style="background: #eee;">
