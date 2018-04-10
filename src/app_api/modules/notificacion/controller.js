@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+
 	
 	var route2 = {}
 	$.getJSON( "./src/app_api/modules/notificacion/routes.json", function( data ) {
@@ -26,6 +26,7 @@ function aceptada (a){
 	'			</p>'+
 	'		</div>'+
 	'	</div><br>'
+	return code
 }
 
 function pendiente (a){
@@ -41,12 +42,13 @@ function pendiente (a){
 	'				<b>Informacion:</b> '+a.info+' <br>'+
 	'				<b>Tipo:</b> '+a.tipo+' <br> '+
 	'				<b>Fecha:</b> '+a.created_at +
-	'				<input type="hidden" value="'+a.__id+'" id="id"/> ' +
-	'				<button type="button" class="btn btn-light" id="btn-aceptar">Aceptar</button>' +
-	'				<button type="button" class="btn btn-light" id="btn-rechazar">Rechazar</button>' +
+	'				<input type="hidden" value="'+a.__id+'" id="id"/> <br>' +
+	'				<button type="button" class="btn btn-light trigger" id="btn-aceptar'+a.__id+'">Aceptar</button>' +
+	'				<button type="button" class="btn btn-light trigger" id="btn-rechazar'+a.__id+'">Rechazar</button>' +
 	'			</p>'+
 	'		</div>'+
 	'	</div><br>'
+	return code
 }
 
 function rechazada (a){
@@ -65,20 +67,26 @@ function rechazada (a){
 	'			</p>'+
 	'		</div>'+
 	'	</div><br>'
+	return code
 	}
 
 // Funcion para ir actualizando cada 60 segundos
 	function actualizar() {
 		$.get("./src/app_api/modules/notificacion/crud/update.php", function(data) {
-			res = JSON.parse(data)
-			console.log(res)
-			// if (res.status == 'ACEPTADA') {
-			// 	$("#notification-panel").append(aceptada(res))
-			// } else if (res.status == 'PENDIENTE') {
-			// 	$("#notification-panel").append(pendiente(res))
-			// } else {
-			// 	$("#notification-panel").append(rechazada(res))
-			// }
+			var res = JSON.parse(data)
+			console.log('Actualizo')
+			$("#notification-panel").html('')
+			var content = res.data
+			for (var i = 0; i < content.length; i++) {
+				// console.log(content[i])
+				if (content[i].status == 'ACEPTADA') {
+					$("#notification-panel").append(aceptada(content[i]))
+				} else if (content[i].status == 'PENDIENTE') {
+					$("#notification-panel").append(pendiente(content[i]))
+				} else {
+					$("#notification-panel").append(rechazada(content[i]))
+				}
+			}
 		})
 		.fail(function() {
 			console.log( "error" )
@@ -86,10 +94,7 @@ function rechazada (a){
 	}
 
 	actualizar()
-	setInterval(
-		actualizar(),
-		60000
-	);
+	var myVar = setInterval(function(){ actualizar() }, 15000 );
 
 // Funcion para cambiar el status de la Notification a REALIZADA
 	function changeStatus (id, newStatus) {
@@ -121,15 +126,16 @@ function rechazada (a){
 		})
 	}
 
-	$( "#btn-aceptar" ).click(function() {
+	$( "button.trigger" ).on('click', function(e) {
+		console.log('click')
+		console.log(e)
 	  var id = $('id').val()
-		changeStatus(id, 'ACEPTADA')
+		// changeStatus(id, 'ACEPTADA')
 	});
 
-	$( "#btn-rechazar" ).click(function() {
-	  var id = $('id').val()
-		changeStatus(id, 'RECHAZADA')
-	});
-
-});
+	// $( ".trigger" ).click(function() {
+	// 	console.log(e)
+	//   var id = $('id').val()
+	// 	// changeStatus(id, 'RECHAZADA')
+	// });
 
