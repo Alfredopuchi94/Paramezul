@@ -83,7 +83,7 @@
 						<!-- ****************** PANEL DE INICIO ****************** -->
 						<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio" style="background: white;">
 					 		<div class="row">
-					 			<div class="col-md-6 col-sm-12 mt-4">
+					 			<div class="col-md-4 col-sm-12 mt-4" style="width: 250px;">
 					 				<div class="card border-info text-info">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -100,23 +100,7 @@
 								  		</div>
 									</div>
 					 			</div>
-					 			<div class="col-md-6 col-sm-12 mt-4">
-					 				<div class="card border-danger text-danger">
-								  		<div class="card-header">
-								  			<div class="row">
-								  				<div class="col-md-3">
-								  					<i class="fas fa-user-circle fa-4x"></i>
-								  				</div>
-								  				<div class="col-md-9 text-right">
-								  					<div class="huge">3</div>
-								  					<div>Administradores</div>
-								  				</div>
-								  			</div>
-								  		</div>
-								  		
-									</div>
-					 			</div>
-					 			<div class="col-md-6 col-sm-12 mt-4">
+					 			<div class="col-md-4 col-sm-12 mt-4" style="width: 250px;">
 					 				<div class="card border-warning text-warning">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -124,7 +108,10 @@
 								  					<i class="fas fa-users fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
-								  					<div class="huge">87</div>
+								  						<?php 
+								  						$cliencuenta = $con->query("SELECT COUNT(*) as cuenta FROM cliente");
+								  						$resultclient = mysqli_fetch_array($cliencuenta); ?>
+								  					<div class="huge"><?php echo $resultclient['cuenta']; ?></div>
 								  					<div>Clientes</div>
 								  				</div>
 								  			</div>
@@ -132,7 +119,7 @@
 								  		
 									</div>
 					 			</div>
-					 			<div class="col-md-6 col-sm-12 mt-4">
+					 			<div class="col-md-4 col-sm-12 mt-4" style="width: 250px;">
 					 				<div class="card border-success text-success">
 								  		<div class="card-header">
 								  			<div class="row">
@@ -140,7 +127,10 @@
 								  					<i class="fas fa-cart-plus fa-4x"></i>
 								  				</div>
 								  				<div class="col-md-9 text-right">
-								  					<div class="huge">105</div>
+								  					<?php 
+								  					$servicuenta = $con->query("SELECT COUNT(*) as cuenta FROM notificacion");
+								  					$resultserv = mysqli_fetch_array($servicuenta); ?>
+								  					<div class="huge"><?php echo $resultserv['cuenta']; ?></div>
 								  					<div>Servicios</div>
 								  				</div>
 								  			</div>
@@ -379,11 +369,12 @@
 	                    </thead>
 	                    <tbody class="text-center justify-content-center">
 	                     <?php while($client = mysqli_fetch_array($cli)){
-	                      	if ($client['active'] = 1) {
-	                      		$client['active'] = "pre";
-	                      	} else{
-	                      		$client['active'] = "No Activo";
-	                      	}
+	                     	if ($client['active']==1) {
+	                     		$client['active'] = "ACTIVO";
+	                     	} else {
+	                     		$client['active'] = "NO ACTIVO";
+	                     	}
+
 	                       ?>
 	                     	<tr>
 	                     		<td><?php echo $client['fname'] ?></td>
@@ -392,7 +383,7 @@
 	                     		<td><?php echo $client['tlf'] ?></td>
 	                     		<td><?php echo $client['active'] ?></td>
 	                     	</tr>
-	                     	<?php } ?>
+	                     	<?php }?>
 	                    </tbody>
 		                </table>
 
