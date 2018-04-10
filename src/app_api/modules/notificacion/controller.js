@@ -1,8 +1,12 @@
 $( document ).ready(function() {
-	var route = {}
-	$.getJSON( "./src/app_api/modules/cliente/routes.json", function( data ) {
-		route = data
+	
+	var route2 = {}
+	$.getJSON( "./src/app_api/modules/notificacion/routes.json", function( data ) {
+		route2 = data
 		console.log(data)
+	})
+	.fail(function() {
+		console.log( "error" )
 	})
 
 // Construccion de la notification
@@ -46,7 +50,7 @@ function pendiente (a){
 }
 
 function rechazada (a){
-		var code = ''+
+	var code = ''+
 	'	<div class="card text-center text-white bg-danger" id="'+a.__id+'">'+
 	'		<div class="card-header">'+
 	'			Estado: <b>RECHAZADA</b>'+
@@ -62,11 +66,10 @@ function rechazada (a){
 	'		</div>'+
 	'	</div><br>'
 	}
-});
 
 // Funcion para ir actualizando cada 60 segundos
 	function actualizar() {
-		$.get( route.update.url, function(data) {
+		$.get("./src/app_api/modules/notificacion/crud/update.php", function(data) {
 			res = JSON.parse(data)
 			console.log(res)
 			// if (res.status == 'ACEPTADA') {
@@ -82,6 +85,7 @@ function rechazada (a){
 		})
 	}
 
+	actualizar()
 	setInterval(
 		actualizar(),
 		60000
@@ -99,8 +103,8 @@ function rechazada (a){
 			beforeSend: function (){
 				// $('#cliente_sub').html('<i class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>')
 			},
-			url: route.status.url,
-			type: route.status.type,
+			url: route2.status.url,
+			type: route2.status.type,
 			contentType: "application/json",
       dataType: "json",
 			data: JSON.stringify(params),
@@ -127,4 +131,5 @@ function rechazada (a){
 		changeStatus(id, 'RECHAZADA')
 	});
 
-})
+});
+

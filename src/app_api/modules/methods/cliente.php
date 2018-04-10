@@ -279,17 +279,17 @@
 			$date = date("Y-m-d H:i:s", time());
 
 
-			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, email_cliente, created_at, update_at)
-			VALUES ('$id','$ubicacion', '$telf_contacto', '$tipo', '$email', '$date', '$date')";
+			$sql= "INSERT INTO notificacion (__id, info, telefono, tipo, status, email_cliente, created_at, update_at)
+			VALUES ('$id','$ubicacion', '$telf_contacto', '$tipo', 'PENDIENTE', '$email', '$date', '$date')";
 
 			if (mysqli_query($connect, $sql)) {
-
-				$id_admin = '123abc';
-				$other = "INSERT INTO es_notificado (id_admin, id_notificacion) VALUES ('$id_admin', '$id')";
-
-				if (mysqli_query($connect, $other)) {
 					$res = true;
-				}
+
+				// $id_admin = '123abc';
+				// $other = "INSERT INTO es_notificado (id_admin, id_notificacion) VALUES ('$id_admin', '$id')";
+
+				// if (mysqli_query($connect, $other)) {
+				// }
 			}
 
 			mysqli_close($connect);
