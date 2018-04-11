@@ -1,7 +1,7 @@
 <?php 
 	require_once "../../../config/connection.php";
 	require_once "../../methods/cliente.php";
-	require_once "../../methods/common.php";
+	// require_once "../../methods/common.php";
 	$res = [];
 	$obj = new Methods();
 	$resp = $obj->tryToConnect();

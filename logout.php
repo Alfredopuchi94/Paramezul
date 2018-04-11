@@ -2,7 +2,7 @@
 	require_once "./src/app_api/modules/methods/common.php";
   session_start();
 
-  $obj = new Methods3();
+  $obj = new MethodsC();
   $res = $obj->logout();
   if ($res) {
     session_destroy();

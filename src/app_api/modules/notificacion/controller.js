@@ -43,8 +43,8 @@ function pendiente (a){
 	'				<b>Tipo:</b> '+a.tipo+' <br> '+
 	'				<b>Fecha:</b> '+a.created_at +
 	'				<input type="hidden" value="'+a.__id+'" id="id"/> <br>' +
-	'				<button type="button" class="btn btn-light trigger" id="btn-aceptar'+a.__id+'">Aceptar</button>' +
-	'				<button type="button" class="btn btn-light trigger" id="btn-rechazar'+a.__id+'">Rechazar</button>' +
+	'				<a href="#" class="btn btn-light aceptar" id="'+a.__id+'">Aceptar</a>' +
+	'				<a href="#" class="btn btn-light rechazar" id="'+a.__id+'">Rechazar</a>' +
 	'			</p>'+
 	'		</div>'+
 	'	</div><br>'
@@ -103,13 +103,12 @@ function rechazada (a){
 			'newStatus': newStatus
 		}
 
-		e.preventDefault()
 		$.ajax({
 			beforeSend: function (){
 				// $('#cliente_sub').html('<i class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>')
 			},
-			url: route2.status.url,
-			type: route2.status.type,
+			url: './src/app_api/modules/notificacion/crud/status.php',
+			type: 'POST',
 			contentType: "application/json",
       dataType: "json",
 			data: JSON.stringify(params),
@@ -126,16 +125,22 @@ function rechazada (a){
 		})
 	}
 
-	$( "button.trigger" ).on('click', function(e) {
-		console.log('click')
-		console.log(e)
-	  var id = $('id').val()
+$(document).ready(function(){
+	$(".aceptar").click( function(e) {
+		var id = e.currentTarget.id
+		console.log("id: ",e.currentTarget.id)
+		console.log("aceptar")
 		// changeStatus(id, 'ACEPTADA')
-	});
+		
+	});	
 
-	// $( ".trigger" ).click(function() {
-	// 	console.log(e)
-	//   var id = $('id').val()
-	// 	// changeStatus(id, 'RECHAZADA')
-	// });
+	$(".rechazar").click( function(e) {
+		var id = e.currentTarget.id
+		console.log("id: ",e.currentTarget.id)
+		console.log("Rechazar")
+		// changeStatus(id, 'RECHAZADA')
+		
+	});	
+})
+
 

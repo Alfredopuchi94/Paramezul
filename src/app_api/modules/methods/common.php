@@ -1,5 +1,5 @@
 <?php
-	class Methods{
+	class MethodsC {
 		//log out
 		public function logout(){
 			setcookie('fname','', time()-1);
