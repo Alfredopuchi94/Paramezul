@@ -79,7 +79,6 @@
 			<div class="row">
       	<div class="col-md-8 col-sm-12 order-sm-2 order-1 mt-4 mx-auto">
 					<h2 class="text-center">PARAMEZUL</h2><hr>
-					<button id="hola" class="btn trigger1">Hellooo</button>
       		<div class="tab-content " id="myTabContent"><!-- PANELES DENTRO DE TAB-CONTEN -->
 						<!-- ****************** PANEL DE INICIO ****************** -->
 						<div class="tab-pane fade show active" id="ini" role="tabpanel" aria-labelledby="inicio" style="background: white;">

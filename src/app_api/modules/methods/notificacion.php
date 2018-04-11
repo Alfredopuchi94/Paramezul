@@ -38,15 +38,25 @@
 			  }
 			}
 
-      if ($res) {
-				// mysqli_close($connect);
-				// if ($aux) {
-				// 	// $res['nombre'] = $aux['fname'].' '. $aux['lname'];
-					return $res;
-				// }
-			} else {
-				return $res = 'not found';
-			}
+      if ($res) { return $res; } else { return $res = 'not found'; }
 		}
 
+		public function status($id, $status){
+			$obj = new connect();
+      $connect = $obj->connection();
+      $res = false;
+      $date = date("Y-m-d H:i:s", time());
+
+      $update = "
+			UPDATE notificacion
+			SET status = '$status',
+			update_at='$date'
+			WHERE __id='$id';
+			";
+			if (mysqli_query($connect, $update)){
+				$res = true;
+			}
+			mysqli_close($connect);
+			return $res;
+		}
 }

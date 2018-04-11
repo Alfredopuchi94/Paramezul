@@ -98,10 +98,7 @@ function rechazada (a){
 
 // Funcion para cambiar el status de la Notification a REALIZADA
 	function changeStatus (id, newStatus) {
-		var params = {
-			'id': id,
-			'newStatus': newStatus
-		}
+		var params = 'id='+id+'&newStatus='+newStatus
 
 		$.ajax({
 			beforeSend: function (){
@@ -109,9 +106,7 @@ function rechazada (a){
 			},
 			url: './src/app_api/modules/notificacion/crud/status.php',
 			type: 'POST',
-			contentType: "application/json",
-      dataType: "json",
-			data: JSON.stringify(params),
+			data: params,
 			success: function (resp) {
 				res = JSON.parse(resp)
 				alert('Operacion realizada')
@@ -130,16 +125,16 @@ $(document).ready(function(){
 		var id = e.currentTarget.id
 		console.log("id: ",e.currentTarget.id)
 		console.log("aceptar")
-		// changeStatus(id, 'ACEPTADA')
-		
+		changeStatus(id, 'ACEPTADA')
+		actualizar()
 	});	
 
 	$(".rechazar").click( function(e) {
 		var id = e.currentTarget.id
 		console.log("id: ",e.currentTarget.id)
 		console.log("Rechazar")
-		// changeStatus(id, 'RECHAZADA')
-		
+		changeStatus(id, 'RECHAZADA')
+		actualizar()
 	});	
 })
 
