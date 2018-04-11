@@ -39,10 +39,15 @@
 	<nav id="menu" class="panel" role="navigation" style="background-color: white;">
 		<h4 class="mt-4 text text-center">Menu Principal</h4>
 		<ul class="list-group list-group-flush" style="background-color:rgba(23, 164, 186, 0.54)">
+			<li class="list-group-item">
+				<a class="nav-link" href="/">
+					Volver a Inicio
+				</a>
+			</li>
 		  <li class="list-group-item">
 				<a class="nav-link hvr-underline-from-center" id="inicio" data-toggle="tab" href="#ini" role="tab" aria-controls="ini" aria-selected="true">
 					<span data-feather="home"></span>
-					Inicio <span class="sr-only">(current)</span>
+					Panel Principal <span class="sr-only">(current)</span>
 				</a>
 			</li>
 		  <li class="list-group-item">

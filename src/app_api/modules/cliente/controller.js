@@ -188,7 +188,7 @@ $( document ).ready(function()
 				type: route.solicitud.type,
 				data: $('#form_servicio').serialize(),
 				success: function (resp) {
-					alert(resp);
+					
 					res = JSON.parse(resp)
 					if (res.save == true) {
 						$('#form_servicio')[0].reset()
@@ -197,11 +197,14 @@ $( document ).ready(function()
 						$('#sub').html('<i style="color:red;" class="fa fa-exclamation-circle" aria-hidden="true"></i>')
 					}
 					console.log(res)
+					var aviso = 'La Solicitud no se pudo enviar'
+					if (res.sent) {
+						aviso = 'Solicitud Enviada'
+					}
 					$('#form_message').html(
 						'<div class="alert alert-light alert-dismissible fade show" role="alert">' +
 						'		<ul>' +
-						'			<li>Connection : ' + res.connection + '</li>' +
-						'			<li>Sent : ' + res.sent + '</li>' +
+						'			<li>'+ aviso +'</li>'+
 						'		</ul>' +
 						'		<button class="close" data-dismiss="alert" aria-label="Close">' +
 						'			<i class="fa fa-window-close" aria-hidden="true"></i>' +

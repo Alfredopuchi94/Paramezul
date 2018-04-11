@@ -1,14 +1,3 @@
-
-	
-	var route2 = {}
-	$.getJSON( "./src/app_api/modules/notificacion/routes.json", function( data ) {
-		route2 = data
-		console.log(data)
-	})
-	.fail(function() {
-		console.log( "error" )
-	})
-
 // Construccion de la notification
 function aceptada (a){
 	var code = ''+
@@ -43,8 +32,8 @@ function pendiente (a){
 	'				<b>Tipo:</b> '+a.tipo+' <br> '+
 	'				<b>Fecha:</b> '+a.created_at +
 	'				<input type="hidden" value="'+a.__id+'" id="id"/> <br>' +
-	'				<a href="#" class="btn btn-light aceptar" id="'+a.__id+'">Aceptar</a>' +
-	'				<a href="#" class="btn btn-light rechazar" id="'+a.__id+'">Rechazar</a>' +
+	'				<button type="button" class="btn btn-light aceptar" id="'+a.__id+'">Aceptar</button>' +
+	'				<button type="button" class="btn btn-light rechazar" id="'+a.__id+'">Rechazar</button>' +
 	'			</p>'+
 	'		</div>'+
 	'	</div><br>'
@@ -94,7 +83,9 @@ function rechazada (a){
 	}
 
 	actualizar()
-	var myVar = setInterval(function(){ actualizar() }, 15000 );
+	var myVar = setInterval(function(){ 
+		actualizar() 
+	}, 15000 );
 
 // Funcion para cambiar el status de la Notification a REALIZADA
 	function changeStatus (id, newStatus) {
@@ -109,7 +100,7 @@ function rechazada (a){
 			data: params,
 			success: function (resp) {
 				res = JSON.parse(resp)
-				alert('Operacion realizada')
+				// alert('Operacion realizada')
 			},
 			error: function (jqXHR,estado,error) {
 				console.log('----------------------')
@@ -120,13 +111,14 @@ function rechazada (a){
 		})
 	}
 
+
 $(document).ready(function(){
 	$(".aceptar").click( function(e) {
 		var id = e.currentTarget.id
 		console.log("id: ",e.currentTarget.id)
 		console.log("aceptar")
 		changeStatus(id, 'ACEPTADA')
-		actualizar()
+		 window.location.href=window.location.href
 	});	
 
 	$(".rechazar").click( function(e) {
@@ -134,7 +126,7 @@ $(document).ready(function(){
 		console.log("id: ",e.currentTarget.id)
 		console.log("Rechazar")
 		changeStatus(id, 'RECHAZADA')
-		actualizar()
+		 window.location.href=window.location.href
 	});	
 })
 

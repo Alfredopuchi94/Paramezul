@@ -10,33 +10,7 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
-  <a class="navbar-brand" href="/">Paramezul</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <!-- <ul class="navbar-nav mr-auto"> -->
-    	<ul class="navbar-nav">
-		      <li class=" nav-item">
-		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class=" nav-item">
-		        <a class="nav-link" href="#">¿Quienes Somos?</a>
-		      </li>
-		      <li class=" nav-item">
-		        <a class="nav-link" href="#">Servicios</a>
-		      </li>
-		      <li class=" nav-item">
-		        <a class="nav-link" href="#">Nuestro Equipo</a>
-		      </li>
-		      <li class=" nav-item">
-		        <a class="nav-link" href="#">Contacto</a>
-		      </li>
-		    </ul>
-  </div>
-</nav>
+		<?php require_once 'menu.php'; ?>
 	</header><!-- /header -->
 	<div class="container text-center">
 		<div class="row mt-2">

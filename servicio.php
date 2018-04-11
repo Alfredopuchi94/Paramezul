@@ -34,33 +34,8 @@ if ($_COOKIE['email']) {
 <body>
 	<?php include "src/app_api/config/connection.php" ?>
 	<header>
-		<nav class="navbar navbar-dark fixed-top bg-dark navbar-expand-lg justify-content-between">
-		  <h3 class="navbar-brand justify-content-center mx-auto" href="/">Paramezul</h3>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-
-		  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-				<ul class="navbar-nav ">
-				    <li class=" nav-item">
-				      <a class="nav-link" href="#"><span class="fa fa-home"> Home</span></a>
-				    </li>
-				</ul>
-				<ul class="navbar-nav ">
-					<form class="form-inline">
-						<?php if ($status) { ?>
-							<div class="input-group">
-								<input type="text" value="Hi <?php echo $_SESSION['fname'].' '.$_SESSION['lname']; ?>" class="form-control text-center" readonly>
-					      <span class="input-group-btn">
-					        <a href="./logout" class="btn btn-outline-danger">Cerrar Sesión</a>
-					      </span>
-					    </div>
-						<?php } ?>
-					</form>
-		    </ul>
-		  </div>
-		</nav>
-	</header>
+		<?php require_once 'menu.php'; ?>
+	</header><!-- /header -->
 
 	<div class="container">
 		<div class="row my-5">

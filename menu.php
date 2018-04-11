@@ -27,22 +27,10 @@
     <!-- <ul class="navbar-nav mr-auto"> -->
     	<ul class="navbar-nav mr-auto">
 		      <li class=" nav-item active">
-		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class=" nav-item colorLetraMenu">
-		        <a class="nav-link" href="#">¿Quienes Somos?</a>
-		      </li>
-		      <li class=" nav-item colorLetraMenu">
-		        <a class="nav-link" href="#">Servicios</a>
-		      </li>
-		      <li class=" nav-item colorLetraMenu">
-		        <a class="nav-link" href="#">Nuestro Equipo</a>
-		      </li>
-		      <li class=" nav-item colorLetraMenu">
-		        <a class="nav-link" href="#">Contacto</a>
+		        <a class="nav-link" href="/">Inicio</a>
 		      </li>
 		    </ul>
-		    <?php if (!isset($_SESSION["fname"])) { ?>
+		    <?php if (!isset($_SESSION["fname"])) {?>
 		    <ul class="navbar-nav">
 		      <li class="nav-item dropdown colorLetraMenu">
 		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,18 +45,33 @@
 		        <a class="nav-link colorLetraMenu" href="./client">Registrarse</a>
 		      </li>
 		  </ul>
-		  <?php } ?>
-		<ul class="navbar-nav">
-			<form class="form-inline">
-				<?php if ($status) { ?>
-					<div class="input-group">
-						<input type="text" value="Hi <?php echo $_SESSION['fname'].' '.$_SESSION['lname']; ?>" class="form-control text-center" readonly>
-			      <span class="input-group-btn">
-			        <a href="./logout" class="btn btn-outline-danger">Cerrar Sesión</a>
-			      </span>
-			    </div>
-				<?php } ?>
-			</form>
-    	</ul>
+		  <?php } 
+		  	else {
+		  	if ($_SESSION["type"] == 'Administrador') {?>
+
+		  	<ul class="navbar-nav">
+		      <li class="nav-item dropdown colorLetraMenu">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Hola <?php echo $_SESSION["fname"]; ?>
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item colorLetraMenu" href="./homeadmin">Panel de administrador</a>
+		          <a class="dropdown-item colorLetraMenu" href="./logout">Cerrar Sesión</a>
+		        </div>
+		      </li>
+		  </ul>
+		  <?php } else {?> 
+		  <ul class="navbar-nav">
+		      <li class="nav-item dropdown colorLetraMenu">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Hola <?php echo $_SESSION["fname"]; ?>
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item colorLetraMenu" href="./servicio">Servicio</a>
+		          <a class="dropdown-item colorLetraMenu" href="./logout">Cerrar Sesión</a>
+		        </div>
+		      </li>
+		  </ul>
+		  <?php } } ?>
   </div>
 </nav>
